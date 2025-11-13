@@ -1,0 +1,53 @@
+[gd_scene load_steps=2 format=3 uid="uid://dc37vwq2i14ju"]
+
+[ext_resource type="Script" uid="uid://btau76gnr6hu0" path="res://GameManager.gd" id="1_ig7tw"]
+
+[node name="main" type="Node2D"]
+script = ExtResource("1_ig7tw")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="OrderLabel" type="Label" parent="CanvasLayer"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 23.0
+grow_horizontal = 2
+
+[node name="ScoreLabel" type="Label" parent="CanvasLayer"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_top = 117.0
+offset_right = 20.0
+offset_bottom = 140.0
+grow_horizontal = 2
+
+[node name="CatLabel" type="Label" parent="CanvasLayer"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_top = 231.0
+offset_right = 20.0
+offset_bottom = 254.0
+grow_horizontal = 2
+
+[node name="ServeButton" type="Button" parent="CanvasLayer"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -32.0
+offset_top = -129.0
+offset_right = 36.0
+offset_bottom = -121.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="GameManager" type="Node2D" parent="."]
+script = ExtResource("1_ig7tw")

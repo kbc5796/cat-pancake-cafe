@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://7xb2c6fm6nip"]
+
+[ext_resource type="Script" uid="uid://d115xqo2xuk5m" path="res://testing.gd" id="1_qrja6"]
+
+[node name="testing" type="Node2D"]
+script = ExtResource("1_qrja6")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Button" type="Button" parent="CanvasLayer"]
+offset_left = 174.0
+offset_top = 84.0
+offset_right = 759.0
+offset_bottom = 176.0
+action_mode = 0
+text = "BUtton"
