@@ -1,0 +1,201 @@
+[gd_scene load_steps=22 format=3 uid="uid://dg7sn7yc8soxw"]
+
+[ext_resource type="Script" uid="uid://btau76gnr6hu0" path="res://GameManager.gd" id="1_3tbxw"]
+[ext_resource type="Texture2D" uid="uid://c2lm2ud7c4wf5" path="res://Sprites/backgroundforgame.jpg" id="1_8qpgq"]
+[ext_resource type="Script" uid="uid://dgn7mxq5jnyjx" path="res://PlayerActions.gd" id="2_pv6b4"]
+[ext_resource type="Texture2D" uid="uid://ow5u0nga3wcu" path="res://Sprites/sr220687fb65aaws3.png" id="3_8dnxm"]
+[ext_resource type="Script" uid="uid://dngbft20e4txe" path="res://Customer.gd" id="3_x5ji8"]
+[ext_resource type="Texture2D" uid="uid://dc4votyrkf5fr" path="res://Sprites/customer.png" id="4_v3hs3"]
+[ext_resource type="Script" uid="uid://bx1senfqwd70f" path="res://Stove.gd" id="5_pv6b4"]
+[ext_resource type="Script" uid="uid://dq36xhp2lhfit" path="res://DrinkMachine.gd" id="6_8dnxm"]
+[ext_resource type="Script" uid="uid://kka6kd2s7087" path="res://ToppingStation.gd" id="7_v3hs3"]
+[ext_resource type="Texture2D" uid="uid://di77hxilfdtga" path="res://Hotbar/EmptyHotBar.png" id="9_o8l48"]
+[ext_resource type="Texture2D" uid="uid://ctmqm7qgpyvr0" path="res://Sprites/choose-your-brew.png" id="10_led80"]
+[ext_resource type="Texture2D" uid="uid://dtdmc4yeh233h" path="res://Sprites/coffee (1).png" id="11_mi4js"]
+[ext_resource type="Texture2D" uid="uid://c3rhge0jwr62" path="res://Sprites/tea (1).png" id="12_o3vwv"]
+[ext_resource type="Texture2D" uid="uid://ctfod2q5j2isn" path="res://Sprites/yum-which-sweet-topping-do-you-want.png" id="13_mi4js"]
+[ext_resource type="Texture2D" uid="uid://b4wc65iv1l3qp" path="res://Sprites/strawberry.png" id="14_401ut"]
+[ext_resource type="Texture2D" uid="uid://do3hst4w4vqof" path="res://Sprites/blueberry.png" id="15_yphxy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0v7qb"]
+size = Vector2(180, 133)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x5ji8"]
+size = Vector2(110, 158)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8dnxm"]
+size = Vector2(107, 135)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v3hs3"]
+size = Vector2(60, 193)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o8l48"]
+size = Vector2(61, 164)
+
+[node name="MainGame" type="Node2D"]
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(577.5, 332.5)
+scale = Vector2(0.724375, 0.739955)
+texture = ExtResource("1_8qpgq")
+
+[node name="Customer" type="Area2D" parent="."]
+script = ExtResource("3_x5ji8")
+
+[node name="Sprite2D" type="Sprite2D" parent="Customer"]
+position = Vector2(576, 154)
+scale = Vector2(0.223633, 0.186524)
+texture = ExtResource("4_v3hs3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Customer"]
+position = Vector2(581, 145.5)
+shape = SubResource("RectangleShape2D_0v7qb")
+
+[node name="OrderIcon" type="Sprite2D" parent="Customer"]
+position = Vector2(575, 75)
+scale = Vector2(0.2, 0.2)
+
+[node name="Player" type="CharacterBody2D" parent="."]
+script = ExtResource("2_pv6b4")
+
+[node name="Sprite2D" type="Sprite2D" parent="Player"]
+position = Vector2(569.125, 379.875)
+scale = Vector2(0.179792, 0.174792)
+texture = ExtResource("3_8dnxm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+position = Vector2(569, 366)
+shape = SubResource("RectangleShape2D_x5ji8")
+
+[node name="Stove" type="Area2D" parent="."]
+script = ExtResource("5_pv6b4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Stove"]
+position = Vector2(874, 182.5)
+shape = SubResource("RectangleShape2D_8dnxm")
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="Stove"]
+position = Vector2(877, 263)
+
+[node name="DrinkMachine" type="Area2D" parent="."]
+position = Vector2(3, -8)
+script = ExtResource("6_8dnxm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DrinkMachine"]
+position = Vector2(206, 188.5)
+shape = SubResource("RectangleShape2D_v3hs3")
+
+[node name="ToppingStation" type="Area2D" parent="."]
+position = Vector2(0, 4)
+script = ExtResource("7_v3hs3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ToppingStation"]
+position = Vector2(297.5, 181)
+shape = SubResource("RectangleShape2D_o8l48")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="OrderLabel" type="Label" parent="CanvasLayer"]
+offset_left = 436.0
+offset_top = 28.0
+offset_right = 476.0
+offset_bottom = 51.0
+
+[node name="CoinsLabel" type="Label" parent="CanvasLayer"]
+offset_left = 1025.0
+offset_top = 27.0
+offset_right = 1065.0
+offset_bottom = 50.0
+
+[node name="TimerLabel" type="Label" parent="CanvasLayer"]
+offset_left = 1030.0
+offset_top = 63.0
+offset_right = 1070.0
+offset_bottom = 86.0
+
+[node name="HotbarSlot" type="Sprite2D" parent="CanvasLayer"]
+position = Vector2(574.125, 582.75)
+scale = Vector2(0.157, 0.145)
+texture = ExtResource("9_o8l48")
+
+[node name="DrinkMenu" type="Control" parent="CanvasLayer"]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_left = 270.0
+offset_top = 476.0
+offset_right = 865.0
+offset_bottom = 578.0
+
+[node name="MenuBackground" type="TextureRect" parent="CanvasLayer/DrinkMenu"]
+layout_mode = 0
+offset_left = 75.0
+offset_top = -24.0
+offset_right = 535.0
+offset_bottom = 47.0
+texture = ExtResource("10_led80")
+
+[node name="CoffeeButton" type="TextureButton" parent="CanvasLayer/DrinkMenu"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.165
+anchor_top = 0.5
+anchor_right = 0.618
+anchor_bottom = 1.0
+offset_left = -19.175
+offset_top = -24.0
+offset_right = -64.71
+offset_bottom = 24.0
+texture_normal = ExtResource("11_mi4js")
+stretch_mode = 5
+
+[node name="TeaButton" type="TextureButton" parent="CanvasLayer/DrinkMenu"]
+layout_mode = 0
+offset_left = 313.0
+offset_top = 19.0
+offset_right = 537.0
+offset_bottom = 134.0
+texture_normal = ExtResource("12_o3vwv")
+stretch_mode = 5
+
+[node name="ToppingMenu" type="Control" parent="CanvasLayer"]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ToppingMenuBackground" type="TextureRect" parent="CanvasLayer/ToppingMenu"]
+layout_mode = 0
+offset_left = 346.0
+offset_top = 452.0
+offset_right = 804.0
+offset_bottom = 524.0
+texture = ExtResource("13_mi4js")
+
+[node name="StrawberryButton" type="TextureButton" parent="CanvasLayer/ToppingMenu"]
+layout_mode = 0
+offset_left = 344.0
+offset_top = 528.0
+offset_right = 574.0
+offset_bottom = 575.0
+texture_normal = ExtResource("14_401ut")
+stretch_mode = 5
+
+[node name="BlueberryButton" type="TextureButton" parent="CanvasLayer/ToppingMenu"]
+layout_mode = 0
+offset_left = 582.0
+offset_top = 526.0
+offset_right = 808.0
+offset_bottom = 577.0
+texture_normal = ExtResource("15_yphxy")
+stretch_mode = 5
+
+[node name="GameManager" type="Node2D" parent="."]
+position = Vector2(-43, 55)
+script = ExtResource("1_3tbxw")
+
+[connection signal="pressed" from="CanvasLayer/DrinkMenu/CoffeeButton" to="DrinkMachine" method="_on_coffee_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/DrinkMenu/TeaButton" to="DrinkMachine" method="_on_tea_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/ToppingMenu/StrawberryButton" to="ToppingStation" method="_on_strawberry_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/ToppingMenu/BlueberryButton" to="ToppingStation" method="_on_blueberry_button_pressed"]
