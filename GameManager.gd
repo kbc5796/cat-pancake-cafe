@@ -8,7 +8,7 @@ var preparing_item: bool = false
 var order_timer: float = 0.0
 var max_order_time: float = 60.0
 
-var orders = ["Strawberry Pancake", "Blueberry Pancake"]
+var orders = ["Strawberry Pancake", "Blueberry Pancake", "Pancake", "Tea", "Coffee"]
 
 # =================== NODE REFERENCES ===================
 @onready var order_label  = get_node("../CanvasLayer/OrderLabel")
