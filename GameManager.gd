@@ -48,6 +48,7 @@ func _process(delta):
 	print("Timer:", order_timer)
 	if current_order != "":
 		order_timer -= delta
+		update_ui()
 		if order_timer <= 0:
 			print("Order expired!")
 			coins -= 2
@@ -169,7 +170,8 @@ func update_ui():
 	if current_order == "":
 		order_label.text = "Waiting for next order..."
 	else:
-		order_label.text = "Customer wants: " + current_order + " (Time left: " + str(round(order_timer)) + "s)"
+		var time_left = round(order_timer * 10) / 10
+		order_label.text = "Customer wants: " + current_order + " (Time left: " + str(time_left) + "s)"
 
 # =================== GAME OVER ===================
 func check_game_over():
