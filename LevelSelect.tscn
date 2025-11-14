@@ -1,13 +1,29 @@
-[gd_scene load_steps=9 format=3 uid="uid://yddbysr6akkj"]
+[gd_scene load_steps=11 format=3 uid="uid://yddbysr6akkj"]
 
 [ext_resource type="Script" uid="uid://ca2ewm5143t0p" path="res://LevelSelect.gd" id="1_sf6f5"]
 [ext_resource type="Texture2D" uid="uid://85uyu3p8gsuw" path="res://Sprites/levelselects.jpg" id="2_ardn0"]
-[ext_resource type="Texture2D" uid="uid://bioceyn38lwih" path="res://Sprites/tutorial.png" id="3_w5tpn"]
-[ext_resource type="Texture2D" uid="uid://bgax2ce6aga7r" path="res://Sprites/main-game.png" id="4_b3bbf"]
+[ext_resource type="Texture2D" uid="uid://o5kl3u65ppy" path="res://Sprites/level-one.png" id="3_b3bbf"]
+[ext_resource type="Texture2D" uid="uid://bd3cca5nlfxi2" path="res://Sprites/level-two.png" id="4_41uxa"]
 [ext_resource type="Texture2D" uid="uid://dyfo62ohv6rn" path="res://Sprites/back-to-main-menu (1).png" id="5_41uxa"]
+[ext_resource type="Texture2D" uid="uid://d24onf8abv45g" path="res://Sprites/level-three.png" id="5_hvlej"]
 [ext_resource type="Texture2D" uid="uid://bcyq7suvf8fep" path="res://Sprites/pick-a-level-to-continue.png" id="9_b3bbf"]
 [ext_resource type="AudioStream" uid="uid://dq1br85l3ms5g" path="res://music/cozy-crackle-nights-2-345531.mp3" id="10_41uxa"]
 [ext_resource type="AudioStream" uid="uid://dornhsqcestf3" path="res://music/menu-button-88360.mp3" id="10_hvlej"]
+
+[sub_resource type="GDScript" id="GDScript_il1aw"]
+resource_name = "level_one_button"
+script/source = "extends Button
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+"
 
 [node name="LevelSelect" type="Node2D"]
 script = ExtResource("1_sf6f5")
@@ -21,25 +37,33 @@ texture = ExtResource("2_ardn0")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="Tutorial" type="Button" parent="CanvasLayer"]
-offset_left = 386.0
-offset_top = 184.0
-offset_right = 794.0
-offset_bottom = 228.0
-icon = ExtResource("3_w5tpn")
+[node name="LevelOne" type="Button" parent="CanvasLayer"]
+offset_left = 410.0
+offset_top = 185.0
+offset_right = 768.0
+offset_bottom = 229.0
+icon = ExtResource("3_b3bbf")
+script = SubResource("GDScript_il1aw")
 
-[node name="MainGame" type="Button" parent="CanvasLayer"]
-offset_left = 385.0
+[node name="LevelTwo" type="Button" parent="CanvasLayer"]
+offset_left = 410.0
 offset_top = 254.0
-offset_right = 793.0
+offset_right = 768.0
 offset_bottom = 298.0
-icon = ExtResource("4_b3bbf")
+icon = ExtResource("4_41uxa")
+
+[node name="LevelThree" type="Button" parent="CanvasLayer"]
+offset_left = 410.0
+offset_top = 318.0
+offset_right = 768.0
+offset_bottom = 362.0
+icon = ExtResource("5_hvlej")
 
 [node name="Back" type="Button" parent="CanvasLayer"]
 offset_left = 385.0
-offset_top = 325.0
+offset_top = 380.0
 offset_right = 793.0
-offset_bottom = 369.0
+offset_bottom = 424.0
 icon = ExtResource("5_41uxa")
 
 [node name="Sprite2D" type="Sprite2D" parent="CanvasLayer"]

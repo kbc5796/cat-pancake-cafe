@@ -48,7 +48,7 @@ func _ready():
 
 # ================== Start Button ==================
 func _on_start_pressed():
-	get_tree().change_scene_to_file("res://MainGame.tscn")
+	get_tree().change_scene_to_file("res://LevelSelect.tscn")
 
 func _on_start_hover():
 	if hover_sound != null: hover_sound.play()
