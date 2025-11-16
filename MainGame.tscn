@@ -1,14 +1,14 @@
-[gd_scene load_steps=27 format=3 uid="uid://dg7sn7yc8soxw"]
+[gd_scene load_steps=28 format=3 uid="uid://dg7sn7yc8soxw"]
 
 [ext_resource type="Script" uid="uid://btau76gnr6hu0" path="res://GameManager.gd" id="1_3tbxw"]
 [ext_resource type="Texture2D" uid="uid://dqbwmp7vvadet" path="res://Sprites/backgroundforgame.jpg" id="1_8qpgq"]
-[ext_resource type="Script" path="res://PlayerActions.gd" id="2_pv6b4"]
+[ext_resource type="Script" uid="uid://dgn7mxq5jnyjx" path="res://PlayerActions.gd" id="2_pv6b4"]
 [ext_resource type="Texture2D" uid="uid://bd58sapdpwrhi" path="res://Sprites/sr220687fb65aaws3.png" id="3_8dnxm"]
 [ext_resource type="Script" uid="uid://dngbft20e4txe" path="res://Customer.gd" id="3_x5ji8"]
 [ext_resource type="Texture2D" uid="uid://cv1t7usm8urxd" path="res://Sprites/customer.png" id="4_v3hs3"]
-[ext_resource type="Script" path="res://Stove.gd" id="5_pv6b4"]
-[ext_resource type="Script" path="res://DrinkMachine.gd" id="6_8dnxm"]
-[ext_resource type="Script" path="res://ToppingStation.gd" id="7_v3hs3"]
+[ext_resource type="Script" uid="uid://bx1senfqwd70f" path="res://Stove.gd" id="5_pv6b4"]
+[ext_resource type="Script" uid="uid://dq36xhp2lhfit" path="res://DrinkMachine.gd" id="6_8dnxm"]
+[ext_resource type="Script" uid="uid://kka6kd2s7087" path="res://ToppingStation.gd" id="7_v3hs3"]
 [ext_resource type="Texture2D" uid="uid://cgeemgsgcedt6" path="res://Hotbar/EmptyHotBar.png" id="9_o8l48"]
 [ext_resource type="Texture2D" uid="uid://bu1gxxjoms5d6" path="res://Sprites/choose-your-brew.png" id="10_led80"]
 [ext_resource type="Texture2D" uid="uid://uvrrfmps3hyx" path="res://Sprites/coffee (1).png" id="11_mi4js"]
@@ -21,6 +21,7 @@
 [ext_resource type="AudioStream" uid="uid://115isaeot5mh" path="res://music/click-button.mp3" id="19_28psf"]
 [ext_resource type="AudioStream" uid="uid://dg6tjhditywg2" path="res://music/interactive-sounds.mp3" id="20_a6adi"]
 [ext_resource type="AudioStream" uid="uid://c51cfghug1t26" path="res://music/Ding.mp3" id="21_va67g"]
+[ext_resource type="AudioStream" uid="uid://djjdqwbpxvd7f" path="res://music/10s-countdown.mp3" id="22_t0yo1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0v7qb"]
 size = Vector2(180, 133)
@@ -117,10 +118,10 @@ offset_right = 1065.0
 offset_bottom = 50.0
 
 [node name="TimerLabel" type="Label" parent="CanvasLayer"]
-offset_left = 1030.0
-offset_top = 63.0
-offset_right = 1070.0
-offset_bottom = 86.0
+offset_left = 984.0
+offset_top = 55.0
+offset_right = 1024.0
+offset_bottom = 78.0
 
 [node name="HotbarSlot" type="Sprite2D" parent="CanvasLayer"]
 position = Vector2(574.125, 582.75)
@@ -201,10 +202,10 @@ texture_normal = ExtResource("15_yphxy")
 stretch_mode = 5
 
 [node name="Back" type="Button" parent="CanvasLayer"]
-offset_left = 1018.0
-offset_top = 55.0
-offset_right = 1326.0
-offset_bottom = 153.0
+offset_left = 18.0
+offset_top = 19.0
+offset_right = 326.0
+offset_bottom = 117.0
 scale = Vector2(0.25, 0.25)
 icon = ExtResource("17_yphxy")
 
@@ -220,7 +221,11 @@ stream = ExtResource("20_a6adi")
 
 [node name="Ding" type="AudioStreamPlayer2D" parent="CanvasLayer"]
 stream = ExtResource("21_va67g")
-volume_db = -20.0
+volume_db = -10.0
+
+[node name="CountDown" type="AudioStreamPlayer" parent="CanvasLayer"]
+stream = ExtResource("22_t0yo1")
+volume_db = -15.0
 
 [connection signal="pressed" from="CanvasLayer/DrinkMenu/CoffeeButton" to="DrinkMachine" method="_on_coffee_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/DrinkMenu/TeaButton" to="DrinkMachine" method="_on_tea_button_pressed"]

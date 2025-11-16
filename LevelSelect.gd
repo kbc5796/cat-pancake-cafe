@@ -93,6 +93,7 @@ func _on_level1_exit():
 
 func _on_level2_pressed():
 	# Go back to Main Menu
+	Global.selected_level = 2
 	await click_sound_play(0.1)
 	get_tree().change_scene_to_file("res://MainGame.tscn")
 	
@@ -107,6 +108,7 @@ func _on_level2_exit():
 	
 func _on_level3_pressed():
 	# Go back to Main Menu
+	Global.selected_level = 3
 	await click_sound_play(0.1)
 	get_tree().change_scene_to_file("res://MainGame.tscn")
 	

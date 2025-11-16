@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://vksmk2oojmon"]
 
-[ext_resource type="AudioStream" uid="uid://bycuxi5r276ov" path="res://music/tvari-tokyo-cafe-159065.mp3" id="1_1a72i"]
+[ext_resource type="AudioStream" uid="uid://dd0vtc818c1sa" path="res://music/tvari-tokyo-cafe-159065.mp3" id="1_1a72i"]
 
 [sub_resource type="GDScript" id="GDScript_ghq50"]
 script/source = "extends Node
@@ -41,7 +41,7 @@ script = SubResource("GDScript_ghq50")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("1_1a72i")
-volume_db = -20.0
+volume_db = -30.0
 autoplay = true
 parameters/looping = false
 script = SubResource("GDScript_b4324")

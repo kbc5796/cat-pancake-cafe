@@ -9,6 +9,7 @@ class_name GameManager
 @onready var click_sound = get_node("../CanvasLayer/ClickSound")
 @onready var interact_sound = get_node("../CanvasLayer/InteractiveSound")
 @onready var ding_sound = get_node("../CanvasLayer/Ding")
+@onready var countdown_sound = get_node("../CanvasLayer/CountDown")
 
 # Hover scale factor
 const HOVER_SCALE = 0.30
@@ -20,13 +21,17 @@ var current_order: String = ""
 var prepared_item: String = ""
 var preparing_item: bool = false
 var order_timer: float = 0.0
-var max_order_time: float = 30.0
+var max_order_time: float = 60.0
+var random_size = 3
+var round_timer = 60.0
+var played_countdown_sound = false
 
-var orders = ["Strawberry Pancake", "Blueberry Pancake", "Pancake", "Tea", "Coffee"]
+var orders = ["Tea", "Coffee", "Pancake", "Strawberry Pancake", "Blueberry Pancake"]
 
 # =================== NODE REFERENCES ===================
 @onready var order_label  = get_node("../CanvasLayer/OrderLabel")
 @onready var coins_label  = get_node("../CanvasLayer/CoinsLabel")
+@onready var timer_label  = get_node("../CanvasLayer/TimerLabel")
 @onready var customer_node = get_node("../Customer")
 @onready var order_icon = customer_node.get_node("OrderIcon") as Sprite2D
 @onready var player_node   = get_node("../Player")
@@ -85,6 +90,7 @@ func connect_button():
 # =================== GAME LOOP ===================
 func _ready():
 	connect_button()
+	await init_level()
 	randomize()
 	show_hotbar("Empty")
 	await waiting_order()
@@ -92,6 +98,13 @@ func _ready():
 	update_ui()
 
 func _process(delta):
+	round_timer -= delta
+	if(round_timer <= 0): check_game_over()
+	if(round_timer <= 10.1 && !played_countdown_sound):
+		countdown_sound.play()
+		played_countdown_sound = true
+		
+	update_ui()
 	if current_order != "":
 		order_timer -= delta
 		update_ui()
@@ -102,11 +115,20 @@ func _process(delta):
 			check_game_over()
 			reset_order()
 
+# =================== LEVEL SETTING ===================
+func init_level():
+	if(Global.selected_level == 1): return
+	if(Global.selected_level >= 2):
+		random_size = 5
+		max_order_time = 30.0
+	if(Global.selected_level == 3): max_order_time = 15.0
+		
+
 # =================== ORDER SPAWNING ===================
 func spawn_new_order():
 	#if preparing_item: // THIS IS A BUG!
 		#return
-	var rand_index = randi() % orders.size()
+	var rand_index = randi() % random_size
 	current_order = orders[rand_index]
 	order_timer = max_order_time
 	prepared_item = ""
@@ -222,7 +244,7 @@ func serve_order():
 func reset_order():
 	prepared_item = ""
 	current_order = ""
-
+	await ding_sound_play(0)
 	await waiting_order()	
 	
 	spawn_new_order()
@@ -230,6 +252,7 @@ func reset_order():
 # =================== UI ===================
 func update_ui():
 	coins_label.text = "Coins: " + str(coins)
+	timer_label.text = "Round ends in: " + str(max(0, round(round_timer * 10) / 10))
 	if current_order == "":
 		order_label.text = "Waiting for next order..."
 	else:
@@ -238,6 +261,6 @@ func update_ui():
 
 # =================== GAME OVER ===================
 func check_game_over():
-	if coins < 0:
+	if coins < 0 || round_timer <= 0:
 		print("Game Over!")
-		get_tree().change_scene_to_file("res://GameOver.tscn")
+		get_tree().change_scene_to_file("res://LevelSelect.tscn")
