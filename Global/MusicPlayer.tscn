@@ -3,38 +3,8 @@
 [ext_resource type="AudioStream" uid="uid://dd0vtc818c1sa" path="res://music/tvari-tokyo-cafe-159065.mp3" id="1_1a72i"]
 
 [sub_resource type="GDScript" id="GDScript_ghq50"]
-script/source = "extends Node
-
-@onready var sfx = $SFX
-@onready var bgm = $BGM
-
-var sounds = {
-	\"ClickSound\": load(\"res://music/click-button.mp3\"),
-	\"HoverSound\": load(\"res://music/menu-button-88360.mp3\")
-}
-
-func play_sound(name: String):
-	if sounds.has(name):
-		sfx.stream = sounds[name]
-		sfx.play()
-"
 
 [sub_resource type="GDScript" id="GDScript_b4324"]
-script/source = "extends Node
-
-@onready var sfx = $SFX
-@onready var bgm = $BGM
-
-var sounds = {
-	\"ClickSound\": load(\"res://music/click-button.mp3\"),
-	\"HoverSound\": load(\"res://music/menu-button-88360.mp3\")
-}
-
-func play_sound(name: String):
-	if sounds.has(name):
-		sfx.stream = sounds[name]
-		sfx.play()
-"
 
 [node name="MusicPlayer" type="Node2D"]
 script = SubResource("GDScript_ghq50")
