@@ -43,5 +43,5 @@ script = SubResource("GDScript_ghq50")
 stream = ExtResource("1_1a72i")
 volume_db = -30.0
 autoplay = true
-parameters/looping = false
+parameters/looping = true
 script = SubResource("GDScript_b4324")
