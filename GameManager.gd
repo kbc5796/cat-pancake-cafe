@@ -58,6 +58,15 @@ var order_textures = {
 	"Blueberry Pancake": load("res://Orders/BlueberryPancake.png")
 }
 
+# =================== CUSTOMER TEXTURES ===================
+var customer_textures = [
+	load("res://Sprites/customer.png"),
+	load("res://Sprites/customer2.png"),
+	load("res://Sprites/customer3.png"),
+	load("res://Sprites/customer4.png")
+]
+@onready var customer_sprite = customer_node.get_node("Sprite2D")
+
 # =================== MUSIC ===================
 func click_sound_play(timeout):
 	click_sound.play()
@@ -165,6 +174,8 @@ func hide_customer():
 	customer_node.visible = false
 
 func show_customer():
+	var random_index = randi() % customer_textures.size()
+	customer_sprite.texture = customer_textures[random_index]
 	customer_node.visible = true
 
 func waiting_order():
