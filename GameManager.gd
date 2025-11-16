@@ -256,7 +256,7 @@ func serve_order():
 	else:
 		coins -= 5
 		print("Wrong order! Coins deducted: 5")
-		check_game_over()
+		if check_game_over(): return
 
 	show_hotbar("Empty")
 	hide_order_icon()
