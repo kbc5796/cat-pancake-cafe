@@ -19,7 +19,29 @@ const HOVER_SCALE = 1.1
 const NORMAL_SCALE = 1.0
 
 #
+func update_level_buttons():
+	level1_button.disabled = false
+	
+	# Level 2
+	if Global.unlocked_levels >= 2:
+		level2_button.disabled = false
+		level2_button.modulate = Color(1, 1, 1)  # normal
+	else:
+		level2_button.disabled = true
+		level2_button.modulate = Color(0.5, 0.5, 0.5)  # gray-out
+
+	# Level 3
+	if Global.unlocked_levels >= 3:
+		level3_button.disabled = false
+		level3_button.modulate = Color(1, 1, 1)
+	else:
+		level3_button.disabled = true
+		level3_button.modulate = Color(0.5, 0.5, 0.5)
+	
 func _ready():
+	print("debug: ", Global.unlocked_levels)
+	update_level_buttons()
+
 	# Connect back button signals
 	back_button.pressed.connect(_on_back_pressed)
 	back_button.mouse_entered.connect(_on_back_hover)

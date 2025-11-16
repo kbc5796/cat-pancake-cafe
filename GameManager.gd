@@ -26,8 +26,9 @@ var preparing_item: bool = false
 var order_timer: float = 0.0
 var max_order_time: float = 60.0
 var random_size = 3
-var round_timer = 90.0
+var round_timer = 60.0
 var played_countdown_sound = false
+var game_is_over = false
 
 var orders = ["Tea", "Coffee", "Pancake", "Strawberry Pancake", "Blueberry Pancake"]
 
@@ -295,16 +296,22 @@ func update_ui():
 
 # =================== GAME OVER ===================
 func check_game_over():
+	if game_is_over: 
+		return true
+	
 	if coins < 0:
+		game_is_over = true
 		back_button.visible = false
 		order_label.visible = false
 		hotbar_icon.visible = false
 		Transition.fade_to_scene("res://GameOver.tscn")
 		return true
 	if round_timer <= 0:
+		game_is_over = true
 		back_button.visible = false
 		order_label.visible = false
 		hotbar_icon.visible = false
 		Transition.fade_to_scene("res://YouWin.tscn")
+		Global.unlocked_levels += 1
 		return true
 	return false
