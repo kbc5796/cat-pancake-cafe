@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://dg7sn7yc8soxw"]
+[gd_scene load_steps=31 format=3 uid="uid://dg7sn7yc8soxw"]
 
 [ext_resource type="Script" uid="uid://btau76gnr6hu0" path="res://GameManager.gd" id="1_3tbxw"]
 [ext_resource type="Texture2D" uid="uid://dqbwmp7vvadet" path="res://Sprites/backgroundforgame.jpg" id="1_8qpgq"]
@@ -22,6 +22,9 @@
 [ext_resource type="AudioStream" uid="uid://dg6tjhditywg2" path="res://music/interactive-sounds.mp3" id="20_a6adi"]
 [ext_resource type="AudioStream" uid="uid://c51cfghug1t26" path="res://music/Ding.mp3" id="21_va67g"]
 [ext_resource type="AudioStream" uid="uid://djjdqwbpxvd7f" path="res://music/10s-countdown.mp3" id="22_t0yo1"]
+[ext_resource type="AudioStream" uid="uid://c3ncfa53sjx4q" path="res://music/Bell.mp3" id="23_6brkw"]
+[ext_resource type="AudioStream" uid="uid://ddnx5a6j6pqun" path="res://music/Fire.mp3" id="24_cgwad"]
+[ext_resource type="AudioStream" uid="uid://busqj87yg7v30" path="res://music/drink-pouring.mp3" id="25_0igvr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0v7qb"]
 size = Vector2(180, 133)
@@ -225,6 +228,18 @@ volume_db = -10.0
 
 [node name="CountDown" type="AudioStreamPlayer" parent="CanvasLayer"]
 stream = ExtResource("22_t0yo1")
+volume_db = -15.0
+
+[node name="Bell" type="AudioStreamPlayer" parent="CanvasLayer"]
+stream = ExtResource("23_6brkw")
+volume_db = -20.0
+
+[node name="Fire" type="AudioStreamPlayer" parent="CanvasLayer"]
+stream = ExtResource("24_cgwad")
+volume_db = -25.0
+
+[node name="Drink" type="AudioStreamPlayer" parent="CanvasLayer"]
+stream = ExtResource("25_0igvr")
 volume_db = -15.0
 
 [connection signal="pressed" from="CanvasLayer/DrinkMenu/CoffeeButton" to="DrinkMachine" method="_on_coffee_button_pressed"]

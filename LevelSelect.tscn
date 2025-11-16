@@ -1,15 +1,15 @@
 [gd_scene load_steps=12 format=3 uid="uid://yddbysr6akkj"]
 
 [ext_resource type="Script" uid="uid://ca2ewm5143t0p" path="res://LevelSelect.gd" id="1_sf6f5"]
-[ext_resource type="Texture2D" uid="uid://85uyu3p8gsuw" path="res://Sprites/levelselects.jpg" id="2_ardn0"]
-[ext_resource type="Texture2D" uid="uid://o5kl3u65ppy" path="res://Sprites/level-one.png" id="3_b3bbf"]
-[ext_resource type="Texture2D" uid="uid://bd3cca5nlfxi2" path="res://Sprites/level-two.png" id="4_41uxa"]
-[ext_resource type="Texture2D" uid="uid://dyfo62ohv6rn" path="res://Sprites/back-to-main-menu (1).png" id="5_41uxa"]
-[ext_resource type="Texture2D" uid="uid://d24onf8abv45g" path="res://Sprites/level-three.png" id="5_hvlej"]
-[ext_resource type="AudioStream" uid="uid://rdcr10u85oy7" path="res://music/click-button.mp3" id="9_41uxa"]
-[ext_resource type="Texture2D" uid="uid://bcyq7suvf8fep" path="res://Sprites/pick-a-level-to-continue.png" id="9_b3bbf"]
-[ext_resource type="AudioStream" uid="uid://dq1br85l3ms5g" path="res://music/cozy-crackle-nights-2-345531.mp3" id="10_41uxa"]
-[ext_resource type="AudioStream" uid="uid://dornhsqcestf3" path="res://music/menu-button-88360.mp3" id="10_hvlej"]
+[ext_resource type="Texture2D" uid="uid://ba0dsqq7xn6ww" path="res://Sprites/levelselects.jpg" id="2_ardn0"]
+[ext_resource type="Texture2D" uid="uid://de4y2gjx7dcd7" path="res://Sprites/level-one.png" id="3_b3bbf"]
+[ext_resource type="Texture2D" uid="uid://cbliof3sefyaj" path="res://Sprites/level-two.png" id="4_41uxa"]
+[ext_resource type="Texture2D" uid="uid://d1q6ahb0ikhqj" path="res://Sprites/back-to-main-menu (1).png" id="5_41uxa"]
+[ext_resource type="Texture2D" uid="uid://caagc2x6awqyo" path="res://Sprites/level-three.png" id="5_hvlej"]
+[ext_resource type="AudioStream" uid="uid://115isaeot5mh" path="res://music/click-button.mp3" id="9_41uxa"]
+[ext_resource type="Texture2D" uid="uid://gdmcrn0an67l" path="res://Sprites/pick-a-level-to-continue.png" id="9_b3bbf"]
+[ext_resource type="AudioStream" uid="uid://eaq4ssea8erx" path="res://music/cozy-crackle-nights-2-345531.mp3" id="10_41uxa"]
+[ext_resource type="AudioStream" uid="uid://kjjs8rythkx5" path="res://music/menu-button-88360.mp3" id="10_hvlej"]
 
 [sub_resource type="GDScript" id="GDScript_il1aw"]
 resource_name = "level_one_button"
@@ -77,6 +77,7 @@ stream = ExtResource("10_hvlej")
 volume_db = -20.0
 
 [node name="ClickSound" type="AudioStreamPlayer2D" parent="CanvasLayer"]
+visible = false
 stream = ExtResource("9_41uxa")
 
 [node name="MusicPlayer" type="AudioStreamPlayer" parent="."]

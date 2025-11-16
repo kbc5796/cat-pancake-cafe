@@ -79,6 +79,7 @@ func _on_back_exit():
 func _on_level1_pressed():
 	# Go back to Main Menu
 	#if click_sound != null: 
+	Global.selected_level = 1
 	await click_sound_play(0.1)
 	get_tree().change_scene_to_file("res://MainGame.tscn")
 	

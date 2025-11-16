@@ -10,6 +10,9 @@ class_name GameManager
 @onready var interact_sound = get_node("../CanvasLayer/InteractiveSound")
 @onready var ding_sound = get_node("../CanvasLayer/Ding")
 @onready var countdown_sound = get_node("../CanvasLayer/CountDown")
+@onready var bell_sound = get_node("../CanvasLayer/Bell")
+@onready var fire_sound = get_node("../CanvasLayer/Fire")
+@onready var drink_sound = get_node("../CanvasLayer/Drink")
 
 # Hover scale factor
 const HOVER_SCALE = 0.30
@@ -23,7 +26,7 @@ var preparing_item: bool = false
 var order_timer: float = 0.0
 var max_order_time: float = 60.0
 var random_size = 3
-var round_timer = 60.0
+var round_timer = 90.0
 var played_countdown_sound = false
 
 var orders = ["Tea", "Coffee", "Pancake", "Strawberry Pancake", "Blueberry Pancake"]
@@ -65,8 +68,11 @@ func interact_sound_play(timeout):
 	await get_tree().create_timer(timeout).timeout
 
 func ding_sound_play(timeout):
+	bell_sound.stop()
 	ding_sound.play()
 	await get_tree().create_timer(timeout).timeout
+	
+	
 # =================== BUTTONS ===================
 func _on_back_pressed():
 	# Go back to Main Menu
@@ -117,11 +123,15 @@ func _process(delta):
 
 # =================== LEVEL SETTING ===================
 func init_level():
-	if(Global.selected_level == 1): return
-	if(Global.selected_level >= 2):
+	if(Global.selected_level == 1): 
+		random_size = 3
+		max_order_time = 60.0
+	if(Global.selected_level == 2):
 		random_size = 5
 		max_order_time = 30.0
-	if(Global.selected_level == 3): max_order_time = 15.0
+	if(Global.selected_level == 3): 
+		random_size = 5
+		max_order_time = 15.0
 		
 
 # =================== ORDER SPAWNING ===================
@@ -129,6 +139,11 @@ func spawn_new_order():
 	#if preparing_item: // THIS IS A BUG!
 		#return
 	var rand_index = randi() % random_size
+	if(Global.selected_level == 3 && rand_index <= 2):
+		var rand_num = randi() % 3
+		if(rand_num % 2 == 1):
+			if(rand_index <= 2): rand_index += 2
+	
 	current_order = orders[rand_index]
 	order_timer = max_order_time
 	prepared_item = ""
@@ -155,7 +170,7 @@ func show_customer():
 
 func waiting_order():
 	hide_customer()
-	var rand_time = randi() % 3 + 2.5
+	var rand_time = randi() % 2 + 2
 	current_order = ""
 	update_ui()
 	await get_tree().create_timer(rand_time).timeout
@@ -166,6 +181,7 @@ func show_hotbar(item_name: String):
 	if hotbar_textures.has(item_name):
 		hotbar_icon.texture = hotbar_textures[item_name]
 		hotbar_icon.visible = true
+		if(item_name != "Empty"): bell_sound.play()
 	else:
 		hotbar_icon.visible = false
 
@@ -173,21 +189,26 @@ func show_hotbar(item_name: String):
 func cook_pancake():
 	if preparing_item:
 		return
-	if current_order in ["Pancake", "Strawberry Pancake", "Blueberry Pancake"]:
-		preparing_item = true
-		print("Cooking pancake:", current_order)
-		await get_tree().create_timer(3.0).timeout
-		prepared_item = "Pancake"  # always regular pancake for stove
-		preparing_item = false
-		print("Pancake ready!")
-		show_hotbar(prepared_item)
+	#if current_order in ["Pancake", "Strawberry Pancake", "Blueberry Pancake"]: 
+	# ^ THIS IS A BUG!!!
+	preparing_item = true
+	print("Cooking pancake:", current_order)
+	fire_sound.play()
+	await get_tree().create_timer(3.0).timeout
+	prepared_item = "Pancake"  # always regular pancake for stove
+	preparing_item = false
+	fire_sound.stop()
+	print("Pancake ready!")
+	show_hotbar(prepared_item)
 
 func start_tea():
 	if preparing_item:
 		return
+	drink_sound.play()
 	preparing_item = true
 	print("Making Tea")
 	await get_tree().create_timer(2.0).timeout
+	drink_sound.stop()
 	prepared_item = "Tea"
 	preparing_item = false
 	print("Tea ready!")
@@ -196,9 +217,11 @@ func start_tea():
 func start_coffee():
 	if preparing_item:
 		return
+	drink_sound.play()
 	preparing_item = true
 	print("Making Coffee")
 	await get_tree().create_timer(2.5).timeout
+	drink_sound.stop()
 	prepared_item = "Coffee"
 	preparing_item = false
 	print("Coffee ready!")
