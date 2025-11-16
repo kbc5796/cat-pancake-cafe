@@ -1,10 +1,10 @@
 extends Node2D
 
 # Buttons
-@onready var level_buttons = [
-	$CanvasLayer/Tutorial,
-	$CanvasLayer/MainGame,
-]
+#@onready var level_buttons = [
+	#$CanvasLayer/Tutorial,
+	#$CanvasLayer/MainGame,
+#]
 @onready var level1_button = $CanvasLayer/LevelOne
 @onready var level2_button = $CanvasLayer/LevelTwo
 @onready var level3_button = $CanvasLayer/LevelThree

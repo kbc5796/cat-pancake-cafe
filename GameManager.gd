@@ -272,8 +272,8 @@ func reset_order():
 
 # =================== UI ===================
 func update_ui():
-	coins_label.text = "Coins: " + str(coins)
-	timer_label.text = "Round ends in: " + str(max(0, round(round_timer * 10) / 10))
+	coins_label.text = str(coins)
+	timer_label.text = str(max(0, round(round_timer * 10) / 10))
 	if current_order == "":
 		order_label.text = "Waiting for next order..."
 	else:
@@ -284,6 +284,6 @@ func update_ui():
 func check_game_over():
 	if coins < 0 || round_timer <= 0:
 		print("Game Over!")
-		get_tree().change_scene_to_file("res://LevelSelect.tscn")
+		get_tree().change_scene_to_file("res://GameOver.tscn")
 		return true
 	return false
