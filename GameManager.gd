@@ -249,7 +249,7 @@ func serve_order():
 
 	if prepared_item == current_order or prepared_item.begins_with(current_order):
 		var coins_earned = 5
-		if order_timer > max_order_time / 2:
+		if order_timer > max_order_time / (Global.selected_level + 1):
 			coins_earned += 2
 		coins += coins_earned
 		print("Order served successfully! Coins earned:", coins_earned)

@@ -23,5 +23,5 @@ func _process(_delta):
 		if game_manager != null:
 			if game_manager.prepared_item == "": return #FIXED BUG
 			print("Serving customer")
-			game_manager.ding_sound_play(0)
+			game_manager.ding_sound_play()
 			game_manager.serve_order()
