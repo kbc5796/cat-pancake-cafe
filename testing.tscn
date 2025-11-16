@@ -1,9 +1,25 @@
-[gd_scene load_steps=2 format=3 uid="uid://7xb2c6fm6nip"]
+[gd_scene load_steps=2 format=3 uid="uid://bet5ctm0gm5nm"]
 
-[ext_resource type="Script" uid="uid://d115xqo2xuk5m" path="res://testing.gd" id="1_qrja6"]
+[sub_resource type="GDScript" id="GDScript_v62h7"]
+script/source = "extends Node2D
+
+@onready var btn = $CanvasLayer/Button
+
+func _ready():
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	
+	if btn == null:
+		print(\"Button not found!\")  # This helps debug
+	else:
+		print(\"Button found:\", btn)
+		btn.pressed.connect(_on_pressed)
+
+func _on_pressed():
+	print(\"Button clicked!\")
+"
 
 [node name="testing" type="Node2D"]
-script = ExtResource("1_qrja6")
+script = SubResource("GDScript_v62h7")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
