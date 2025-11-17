@@ -3,7 +3,6 @@
 [ext_resource type="Script" uid="uid://btau76gnr6hu0" path="res://GameManager.gd" id="1_3tbxw"]
 [ext_resource type="Texture2D" uid="uid://dqbwmp7vvadet" path="res://Sprites/backgroundforgame.jpg" id="1_8qpgq"]
 [ext_resource type="Script" uid="uid://dgn7mxq5jnyjx" path="res://PlayerActions.gd" id="2_pv6b4"]
-[ext_resource type="Texture2D" uid="uid://bd58sapdpwrhi" path="res://Sprites/sr220687fb65aaws3.png" id="3_8dnxm"]
 [ext_resource type="Texture2D" uid="uid://5jl412ln4l4r" path="res://Sprites/timer.png" id="3_aeu83"]
 [ext_resource type="Script" uid="uid://dngbft20e4txe" path="res://Customer.gd" id="3_x5ji8"]
 [ext_resource type="Texture2D" uid="uid://dc3twkp5fxxfo" path="res://Sprites/coins.png" id="4_f21le"]
@@ -11,6 +10,7 @@
 [ext_resource type="Script" uid="uid://bx1senfqwd70f" path="res://Stove.gd" id="5_pv6b4"]
 [ext_resource type="Script" uid="uid://dq36xhp2lhfit" path="res://DrinkMachine.gd" id="6_8dnxm"]
 [ext_resource type="Script" uid="uid://kka6kd2s7087" path="res://ToppingStation.gd" id="7_v3hs3"]
+[ext_resource type="Texture2D" uid="uid://br3436bxwke83" path="res://Sprites/player_down.png" id="8_f21le"]
 [ext_resource type="Texture2D" uid="uid://cgeemgsgcedt6" path="res://Hotbar/EmptyHotBar.png" id="9_o8l48"]
 [ext_resource type="Texture2D" uid="uid://bu1gxxjoms5d6" path="res://Sprites/choose-your-brew.png" id="10_led80"]
 [ext_resource type="Texture2D" uid="uid://uvrrfmps3hyx" path="res://Sprites/coffee (1).png" id="11_mi4js"]
@@ -84,9 +84,9 @@ scale = Vector2(0.2, 0.2)
 script = ExtResource("2_pv6b4")
 
 [node name="Sprite2D" type="Sprite2D" parent="Player"]
-position = Vector2(569.125, 379.875)
-scale = Vector2(0.179792, 0.174792)
-texture = ExtResource("3_8dnxm")
+position = Vector2(572.50006, 350.99997)
+scale = Vector2(1.0250001, 1.0099999)
+texture = ExtResource("8_f21le")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
 position = Vector2(569, 366)
@@ -127,20 +127,24 @@ offset_right = 476.0
 offset_bottom = 51.0
 
 [node name="CoinsLabel" type="Label" parent="CanvasLayer"]
-offset_left = 986.0
-offset_top = 72.0
-offset_right = 1026.0
-offset_bottom = 95.0
+offset_left = 959.0
+offset_top = 71.0
+offset_right = 1025.0
+offset_bottom = 90.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 11
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="TimerLabel" type="Label" parent="CanvasLayer"]
-offset_left = 1074.0
-offset_top = 71.0
-offset_right = 1114.0
-offset_bottom = 94.0
+offset_left = 1052.0
+offset_top = 69.0
+offset_right = 1118.0
+offset_bottom = 89.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 11
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="HotbarSlot" type="Sprite2D" parent="CanvasLayer"]
 position = Vector2(574.125, 582.75)

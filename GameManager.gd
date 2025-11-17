@@ -26,7 +26,7 @@ var preparing_item: bool = false
 var order_timer: float = 0.0
 var max_order_time: float = 60.0
 var random_size = 3
-var round_timer = 60.0
+var round_timer = 90.0
 var played_countdown_sound = false
 var game_is_over = false
 
@@ -265,6 +265,7 @@ func serve_order():
 		if order_timer > max_order_time / (Global.selected_level + 1):
 			coins_earned += 2
 		coins += coins_earned
+		prepared_item = ""
 		print("Order served successfully! Coins earned:", coins_earned)
 	else:
 		coins -= 5
@@ -274,6 +275,7 @@ func serve_order():
 
 	show_hotbar("Empty")
 	hide_order_icon()
+	check_game_over()
 	reset_order()
 
 func reset_order():
@@ -295,23 +297,40 @@ func update_ui():
 		order_label.text = "Customer wants: " + current_order + " (Time left: " + str(time_left) + "s)"
 
 # =================== GAME OVER ===================
+
+func end_game(path):
+	game_is_over = true
+	back_button.visible = false
+	order_label.visible = false
+	hotbar_icon.visible = false
+	Transition.fade_to_scene(path)
+
 func check_game_over():
 	if game_is_over: 
 		return true
+		
+	if Global.selected_level == 3:
+		if coins >= 40:
+			end_game("res://YouWin.tscn")
+			return true
+			
+	if Global.selected_level == 2:
+		if coins >= 35:
+			end_game("res://YouWin.tscn")
+			Global.unlocked_levels = 3
+			return true
+			
 	
-	if coins < 0:
-		game_is_over = true
-		back_button.visible = false
-		order_label.visible = false
-		hotbar_icon.visible = false
-		Transition.fade_to_scene("res://GameOver.tscn")
+	if Global.selected_level == 1:
+		print("yes: ", coins)
+		if coins >= 30:
+			print("continue") 
+			end_game("res://YouWin.tscn")
+			Global.unlocked_levels = 2
+			return true
+	
+	if (coins < 0) or (round_timer <= 0):
+		end_game("res://GameOver.tscn")
 		return true
-	if round_timer <= 0:
-		game_is_over = true
-		back_button.visible = false
-		order_label.visible = false
-		hotbar_icon.visible = false
-		Transition.fade_to_scene("res://YouWin.tscn")
-		Global.unlocked_levels += 1
-		return true
+		
 	return false
