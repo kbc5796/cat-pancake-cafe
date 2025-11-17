@@ -19,7 +19,7 @@ const HOVER_SCALE = 0.30
 const NORMAL_SCALE = 0.25
 
 # =================== GAME STATE ===================
-var coins: int = 10
+var coins: int = 100
 var current_order: String = ""
 var prepared_item: String = ""
 var preparing_item: bool = false

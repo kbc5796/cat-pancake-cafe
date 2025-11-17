@@ -1,15 +1,5 @@
 extends Node
 
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	#print("yes")
-	connect_button()
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process():
-
 @onready var back_button = $CanvasLayer/Back
 @onready var click_sound = $CanvasLayer/ClickSound
 @onready var hover_sound = $CanvasLayer/HoverSound
@@ -17,6 +7,13 @@ func _ready():
 # Hover scale factor
 const HOVER_SCALE = 1.1
 const NORMAL_SCALE = 1
+
+# Vine sway variables
+var sway_time = 0.0
+const SWAY_SPEED = 2.0
+const SWAY_AMOUNT = 5.0  # pixels
+
+var start_original_pos : Vector2
 
 func click_sound_play(timeout):
 	click_sound.play()
@@ -41,3 +38,12 @@ func connect_button():
 	back_button.pressed.connect(_on_back_pressed)
 	back_button.mouse_entered.connect(_on_back_hover)
 	back_button.mouse_exited.connect(_on_back_exit)
+
+func _ready():
+	connect_button()
+	start_original_pos = back_button.position
+	
+func _process(delta):
+	sway_time += delta * SWAY_SPEED
+	var offset = sin(sway_time) * SWAY_AMOUNT
+	back_button.position.y = start_original_pos.y + offset

@@ -25,9 +25,9 @@ volume_db = -20.0
 
 [node name="Back" type="Button" parent="CanvasLayer"]
 offset_left = 439.0
-offset_top = 563.0
+offset_top = 568.0
 offset_right = 697.0
-offset_bottom = 610.0
+offset_bottom = 615.0
 icon = ExtResource("5_2wggh")
 icon_alignment = 1
 metadata/_edit_use_anchors_ = true
