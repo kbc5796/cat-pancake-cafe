@@ -253,6 +253,7 @@ func add_topping(topping_name: String):
 	if prepared_item in ["Pancake", "Strawberry Pancake", "Blueberry Pancake"]:
 		preparing_item = true
 		print("Adding topping:", topping_name)
+		prepared_item = "" # IT'S A BUG IF WE MISSED THIS LINE
 		await get_tree().create_timer(1.5).timeout  # simulate adding topping
 		prepared_item = topping_name
 		preparing_item = false
@@ -323,7 +324,7 @@ func check_game_over():
 			
 	if Global.selected_level == 2:
 		if coins >= 35:
-			end_game("res://YouWin.tscn")
+			end_game("res://LevelCompletion.tscn")
 			Global.unlocked_levels = 3
 			return true
 			
@@ -332,7 +333,7 @@ func check_game_over():
 		print("yes: ", coins)
 		if coins >= 30:
 			print("continue") 
-			end_game("res://YouWin.tscn")
+			end_game("res://LevelCompletion.tscn")
 			Global.unlocked_levels = 2
 			return true
 	

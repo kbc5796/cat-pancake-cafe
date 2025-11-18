@@ -15,7 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://bu1gxxjoms5d6" path="res://Sprites/choose-your-brew.png" id="10_led80"]
 [ext_resource type="Texture2D" uid="uid://uvrrfmps3hyx" path="res://Sprites/coffee (1).png" id="11_mi4js"]
 [ext_resource type="Texture2D" uid="uid://dy6d4c0rkhpil" path="res://Sprites/tea (1).png" id="12_o3vwv"]
-[ext_resource type="Texture2D" uid="uid://51o65q6bmtpj" path="res://Sprites/new_stove.png" id="13_m6fch"]
+[ext_resource type="Texture2D" uid="uid://u37be2qccf25" path="res://Sprites/new_pan.png" id="13_m6fch"]
 [ext_resource type="Texture2D" uid="uid://dr5i1rvjsguec" path="res://Sprites/yum-which-sweet-topping-do-you-want.png" id="13_mi4js"]
 [ext_resource type="Texture2D" uid="uid://d3r3csy7upglt" path="res://Sprites/strawberry.png" id="14_401ut"]
 [ext_resource type="Texture2D" uid="uid://c7nyanahajg5b" path="res://Sprites/blueberry.png" id="15_yphxy"]
@@ -154,8 +154,8 @@ texture = ExtResource("9_o8l48")
 
 [node name="NewStove" type="Sprite2D" parent="CanvasLayer"]
 visible = false
-position = Vector2(884.9999, 174.00002)
-scale = Vector2(0.35, 0.318)
+position = Vector2(865, 183)
+scale = Vector2(0.15, 0.15)
 texture = ExtResource("13_m6fch")
 
 [node name="DrinkMenu" type="Control" parent="CanvasLayer"]
