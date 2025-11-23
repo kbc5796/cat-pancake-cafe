@@ -1,10 +1,10 @@
 extends Node2D
 class_name GameManager
 
-# Buttons
+# =================== BUTTONS ===================
 @onready var back_button = get_node("../CanvasLayer/Back")
 
-# Musics
+# =================== SOUNDS ===================
 @onready var hover_sound = get_node("../CanvasLayer/HoverSound")
 @onready var click_sound = get_node("../CanvasLayer/ClickSound")
 @onready var interact_sound = get_node("../CanvasLayer/InteractiveSound")
@@ -19,7 +19,6 @@ const HOVER_SCALE = 0.30
 const NORMAL_SCALE = 0.25
 
 # =================== GAME STATE ===================
-var coins: int = 10
 var current_order: String = ""
 var prepared_item: String = ""
 var preparing_item: bool = false
@@ -31,7 +30,12 @@ var played_countdown_sound = false
 var game_is_over = false
 var level1_index = 2
 
+# Orders
 var orders = ["Tea", "Coffee", "Pancake", "Strawberry Pancake", "Blueberry Pancake"]
+
+# Track level completion
+var orders_served: int = 0
+var orders_to_complete_level: int = 10  # updated per level
 
 # =================== NODE REFERENCES ===================
 @onready var order_label  = get_node("../CanvasLayer/OrderLabel")
@@ -41,6 +45,7 @@ var orders = ["Tea", "Coffee", "Pancake", "Strawberry Pancake", "Blueberry Panca
 @onready var order_icon = customer_node.get_node("OrderIcon") as Sprite2D
 @onready var player_node   = get_node("../Player")
 @onready var hotbar_icon = get_node("../CanvasLayer/HotbarSlot")
+@onready var customer_sprite = customer_node.get_node("Sprite2D")
 
 # =================== HOTBAR TEXTURES ===================
 var hotbar_textures = {
@@ -60,32 +65,39 @@ var order_textures = {
 	"Blueberry Pancake": load("res://Orders/BlueberryPancake.png")
 }
 
-# =================== CUSTOMER TEXTURES ===================
 var customer_textures = [
 	load("res://Sprites/customer.png"),
 	load("res://Sprites/customer2.png"),
 	load("res://Sprites/customer3.png"),
 	load("res://Sprites/customer4.png")
 ]
-@onready var customer_sprite = customer_node.get_node("Sprite2D")
 
-# =================== MUSIC ===================
+# =================== CAT SHOP PRICES ===================
+var cat_prices = {
+	"Cat1": 0,
+	"Cat2": 15,
+	"Cat3": 25
+}
+
+# =================== MUSIC FUNCTIONS ===================
 func click_sound_play(timeout):
-	click_sound.play()
+	if click_sound != null:
+		click_sound.play()
 	await get_tree().create_timer(timeout).timeout
 
 func interact_sound_play(timeout):
-	interact_sound.play()
+	if interact_sound != null:
+		interact_sound.play()
 	await get_tree().create_timer(timeout).timeout
 
 func ding_sound_play():
-	bell_sound.stop()
-	ding_sound.play()
-	
-	
-# =================== BUTTONS ===================
+	if bell_sound != null:
+		bell_sound.stop()
+	if ding_sound != null:
+		ding_sound.play()
+
+# =================== BUTTON FUNCTIONS ===================
 func _on_back_pressed():
-	# Go back to Main Menu
 	await click_sound_play(0.1)
 	get_tree().change_scene_to_file("res://LevelSelect.tscn")
 	
@@ -106,18 +118,20 @@ func connect_button():
 # =================== GAME LOOP ===================
 func _ready():
 	connect_button()
-	await init_level()
 	randomize()
 	show_hotbar("Empty")
+	await init_level()
 	await waiting_order()
 	spawn_new_order()
 	update_ui()
+	player_node.switch_cat_by_name(Global.equipped_cat)
 
 func _process(delta):
 	round_timer -= delta
 	if(round_timer <= 0): check_game_over()
 	if(round_timer <= 10.1 && !played_countdown_sound):
-		countdown_sound.play()
+		if countdown_sound != null:
+			countdown_sound.play()
 		played_countdown_sound = true
 		
 	update_ui()
@@ -126,28 +140,29 @@ func _process(delta):
 		update_ui()
 		if order_timer <= 0:
 			print("Order expired!")
-			coins -= 4
+			Global.coins -= 4
 			hide_order_icon()
 			if !check_game_over(): 
 				reset_order()
 
 # =================== LEVEL SETTING ===================
 func init_level():
+	orders_served = 0
 	if(Global.selected_level == 1): 
 		random_size = 3
 		max_order_time = 60.0
-	if(Global.selected_level == 2):
+		orders_to_complete_level = 5
+	elif(Global.selected_level == 2):
 		random_size = 5
 		max_order_time = 30.0
-	if(Global.selected_level == 3): 
+		orders_to_complete_level = 8
+	elif(Global.selected_level == 3): 
 		random_size = 5
 		max_order_time = 15.0
-		
+		orders_to_complete_level = 10
 
 # =================== ORDER SPAWNING ===================
 func spawn_new_order():
-	#if preparing_item: // THIS IS A BUG!
-		#return
 	var rand_index = randi() % random_size
 	
 	if(Global.selected_level == 3 && rand_index <= 2):
@@ -156,13 +171,12 @@ func spawn_new_order():
 			if(rand_index <= 2): rand_index += 2
 	
 	if Global.selected_level == 1:
-			rand_index = level1_index
-			level1_index += 1
-			level1_index %= 3
+		rand_index = level1_index
+		level1_index += 1
+		level1_index %= 3
 		
 	current_order = orders[rand_index]
 	order_timer = max_order_time
-	#prepared_item = "" THIS IS A BUG IF WE LEAVE THIS LINE OF CODE HERE
 	show_order_icon(current_order)
 	ding_sound_play()
 	update_ui()
@@ -193,110 +207,88 @@ func waiting_order():
 	update_ui()
 	await get_tree().create_timer(rand_time).timeout
 	show_customer()
-	
+
 # =================== HOTBAR ===================
 func show_hotbar(item_name: String):
 	if hotbar_textures.has(item_name):
 		hotbar_icon.texture = hotbar_textures[item_name]
 		hotbar_icon.visible = true
-		if(item_name != "Empty"): bell_sound.play()
+		if(item_name != "Empty" and bell_sound != null): bell_sound.play()
 	else:
 		hotbar_icon.visible = false
 
 # =================== PLAYER ACTIONS ===================
 func cook_pancake():
-	if preparing_item:
-		return
-	#if current_order in ["Pancake", "Strawberry Pancake", "Blueberry Pancake"]: 
-	# ^ THIS IS A BUG!!!
+	if preparing_item: return
 	preparing_item = true
-	print("Cooking pancake:", current_order)
-	fire_sound.play()
+	if fire_sound != null: fire_sound.play()
 	await get_tree().create_timer(3.0).timeout
-	prepared_item = "Pancake"  # always regular pancake for stove
+	prepared_item = "Pancake"
 	preparing_item = false
-	fire_sound.stop()
-	print("Pancake ready!")
+	if fire_sound != null: fire_sound.stop()
 	show_hotbar(prepared_item)
 
 func start_tea():
-	if preparing_item:
-		return
-	drink_sound.play()
+	if preparing_item: return
+	if drink_sound != null: drink_sound.play()
 	preparing_item = true
-	print("Making Tea")
 	await get_tree().create_timer(2.0).timeout
-	drink_sound.stop()
+	if drink_sound != null: drink_sound.stop()
 	prepared_item = "Tea"
 	preparing_item = false
-	print("Tea ready!")
 	show_hotbar(prepared_item)
 
 func start_coffee():
-	if preparing_item:
-		return
-	drink_sound.play()
+	if preparing_item: return
+	if drink_sound != null: drink_sound.play()
 	preparing_item = true
-	print("Making Coffee")
 	await get_tree().create_timer(2.5).timeout
-	drink_sound.stop()
+	if drink_sound != null: drink_sound.stop()
 	prepared_item = "Coffee"
 	preparing_item = false
-	print("Coffee ready!")
 	show_hotbar(prepared_item)
 
 # =================== TOPPINGS ===================
 func add_topping(topping_name: String):
-	if preparing_item:
-		return
-
+	if preparing_item: return
 	if prepared_item in ["Pancake", "Strawberry Pancake", "Blueberry Pancake"]:
 		preparing_item = true
-		print("Adding topping:", topping_name)
-		prepared_item = "" # IT'S A BUG IF WE MISSED THIS LINE
-		await get_tree().create_timer(1.5).timeout  # simulate adding topping
+		prepared_item = ""
+		await get_tree().create_timer(1.5).timeout
 		prepared_item = topping_name
 		preparing_item = false
-		print("Topping added! Now:", prepared_item)
-		show_hotbar(prepared_item)  # update hotbar with new topped pancake
-	else:
-		print("No pancake to add topping to!")
+		show_hotbar(prepared_item)
 
 # =================== SERVING ===================
 func serve_order():
-	if current_order == "":
-		print("No active order!")
-		return
+	if current_order == "": return
 
 	if prepared_item == current_order or prepared_item.begins_with(current_order):
 		var coins_earned = 5
 		if order_timer > max_order_time / (Global.selected_level + 1):
 			coins_earned += 2
-		coins += coins_earned
+		Global.coins += coins_earned
 		prepared_item = ""
-		print("Order served successfully! Coins earned:", coins_earned)
+		orders_served += 1
 	else:
-		coins -= 5
+		Global.coins -= 5
 		prepared_item = ""
-		print("Wrong order! Coins deducted: 5")
 		if await check_game_over(): return
 
 	show_hotbar("Empty")
 	hide_order_icon()
-	check_game_over()
+	check_level_completion()
 	reset_order()
 
 func reset_order():
-	#prepared_item = "" THIS IS A BUG IF WE LEAVE THIS LINE OF CODE HERE
 	current_order = ""
 	await ding_sound_play()
-	await waiting_order()	
-	
+	await waiting_order()
 	spawn_new_order()
 
 # =================== UI ===================
 func update_ui():
-	coins_label.text = str(coins)
+	coins_label.text = str(Global.coins)
 	timer_label.text = str(max(0, round(round_timer * 10) / 10))
 	if current_order == "":
 		order_label.text = "Waiting for next order..."
@@ -304,8 +296,17 @@ func update_ui():
 		var time_left = round(order_timer * 10) / 10
 		order_label.text = "Customer wants: " + current_order + " (Time left: " + str(time_left) + "s)"
 
-# =================== GAME OVER ===================
+# =================== LEVEL COMPLETION ===================
+func check_level_completion():
+	if orders_served >= orders_to_complete_level:
+		match Global.selected_level:
+			1: Global.unlocked_levels = 2
+			2: Global.unlocked_levels = 3
+			3: end_game("res://YouWin.tscn")
+		if Global.selected_level != 3:
+			end_game("res://LevelCompletion.tscn")
 
+# =================== GAME OVER ===================
 func end_game(path):
 	game_is_over = true
 	back_button.visible = false
@@ -314,31 +315,26 @@ func end_game(path):
 	Transition.fade_to_scene(path)
 
 func check_game_over():
-	if game_is_over: 
-		return true
-		
-	if Global.selected_level == 3:
-		if coins >= 40:
-			end_game("res://YouWin.tscn")
-			return true
-			
-	if Global.selected_level == 2:
-		if coins >= 35:
-			end_game("res://LevelCompletion.tscn")
-			Global.unlocked_levels = 3
-			return true
-			
-	
-	if Global.selected_level == 1:
-		print("yes: ", coins)
-		if coins >= 30:
-			print("continue") 
-			end_game("res://LevelCompletion.tscn")
-			Global.unlocked_levels = 2
-			return true
-	
-	if (coins < 0) or (round_timer <= 0):
+	if game_is_over: return true
+	if round_timer <= 0 or Global.coins < 0:
 		end_game("res://GameOver.tscn")
 		return true
-		
 	return false
+
+# =================== SHOP FUNCTIONS (for external shop scene) ===================
+func buy_cat(cat_name: String):
+	var price = cat_prices.get(cat_name, 999)
+	if Global.coins >= price:
+		Global.coins -= price
+		if cat_name not in Global.unlocked_cats:
+			Global.unlocked_cats.append(cat_name)
+		equip_cat(cat_name)
+	else:
+		print("Not enough coins to buy", cat_name)
+	update_ui()
+
+func equip_cat(cat_name: String):
+	if cat_name in Global.unlocked_cats:
+		player_node.switch_cat_by_name(cat_name)
+		Global.equipped_cat = cat_name
+		print("Equipped cat:", cat_name)

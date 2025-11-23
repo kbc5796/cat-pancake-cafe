@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://kl6vltqp52bs" path="res://GameOver.gd" id="1_r71yt"]
 [ext_resource type="Texture2D" uid="uid://bnft1japcppje" path="res://Sprites/level_completion.jpg" id="2_r71yt"]
-[ext_resource type="AudioStream" uid="uid://115isaeot5mh" path="res://music/click-button.mp3" id="3_lbulh"]
+[ext_resource type="AudioStream" uid="uid://rdcr10u85oy7" path="res://music/click-button.mp3" id="3_lbulh"]
 [ext_resource type="AudioStream" uid="uid://kjjs8rythkx5" path="res://music/menu-button-88360.mp3" id="4_ddqax"]
 [ext_resource type="Texture2D" uid="uid://bapsn30hibba3" path="res://Sprites/continue.png" id="5_7jgug"]
 
@@ -10,8 +10,8 @@
 script = ExtResource("1_r71yt")
 
 [node name="Background" type="Sprite2D" parent="."]
-position = Vector2(575.315, 327.0245)
-scale = Vector2(0.83965844, 0.8467898)
+position = Vector2(575.315, 327.025)
+scale = Vector2(0.839658, 0.84679)
 texture = ExtResource("2_r71yt")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
