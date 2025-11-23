@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://yddbysr6akkj"]
+[gd_scene load_steps=15 format=3 uid="uid://yddbysr6akkj"]
 
 [ext_resource type="Script" uid="uid://ca2ewm5143t0p" path="res://LevelSelect.gd" id="1_sf6f5"]
 [ext_resource type="Texture2D" uid="uid://ba0dsqq7xn6ww" path="res://Sprites/levelselects.jpg" id="2_ardn0"]
@@ -9,7 +9,6 @@
 [ext_resource type="Texture2D" uid="uid://0cujoty77elv" path="res://Sprites/endless-mode.png" id="6_0a771"]
 [ext_resource type="AudioStream" uid="uid://rdcr10u85oy7" path="res://music/click-button.mp3" id="9_41uxa"]
 [ext_resource type="Texture2D" uid="uid://gdmcrn0an67l" path="res://Sprites/pick-a-level-to-continue.png" id="9_b3bbf"]
-[ext_resource type="AudioStream" uid="uid://eaq4ssea8erx" path="res://music/cozy-crackle-nights-2-345531.mp3" id="10_41uxa"]
 [ext_resource type="AudioStream" uid="uid://kjjs8rythkx5" path="res://music/menu-button-88360.mp3" id="10_hvlej"]
 [ext_resource type="Texture2D" uid="uid://dc3twkp5fxxfo" path="res://Sprites/coins.png" id="11_hvlej"]
 [ext_resource type="Texture2D" uid="uid://c6624vf77kdu7" path="res://Sprites/how (1).png" id="11_il1aw"]
@@ -119,6 +118,3 @@ offset_top = 105.0
 offset_right = 341.0
 offset_bottom = 152.0
 icon = ExtResource("13_0a771")
-
-[node name="MusicPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("10_41uxa")

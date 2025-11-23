@@ -11,7 +11,7 @@ script = SubResource("GDScript_ghq50")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("1_1a72i")
-volume_db = -32.0
+volume_db = -25.0
 autoplay = true
 parameters/looping = true
 script = SubResource("GDScript_b4324")

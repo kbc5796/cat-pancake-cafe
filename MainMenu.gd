@@ -8,9 +8,6 @@ extends Node2D
 @onready var hover_sound = $CanvasLayer/HoverSound
 @onready var click_sound = $CanvasLayer/ClickSound
 
-# Music
-@onready var music = $MusicPlayer
-
 # Hover scale factor
 const HOVER_SCALE = 1.1
 const NORMAL_SCALE = 1.0
@@ -41,11 +38,7 @@ func _ready():
 	quit_button.pressed.connect(_on_quit_pressed)
 	quit_button.mouse_entered.connect(_on_quit_hover)
 	quit_button.mouse_exited.connect(_on_quit_exit)
-
-	# Play music
-	if music != null and not music.playing:
-		music.play()
-		
+	
 func click_sound_play(timeout):
 	click_sound.play()
 	await get_tree().create_timer(timeout).timeout
