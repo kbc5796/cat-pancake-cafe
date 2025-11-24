@@ -1,12 +1,12 @@
 [gd_scene load_steps=8 format=3 uid="uid://cumkwgcljh42t"]
 
 [ext_resource type="Script" uid="uid://d0xxnlkjm3gn5" path="res://MainMenu.gd" id="1_i26rj"]
-[ext_resource type="Texture2D" uid="uid://dgigj0h4j27js" path="res://Sprites/Background (1).jpg" id="2_eiy7p"]
-[ext_resource type="Texture2D" uid="uid://cm22jo0uu7v8h" path="res://Sprites/start (2).png" id="3_qoqlk"]
-[ext_resource type="AudioStream" uid="uid://kjjs8rythkx5" path="res://music/menu-button-88360.mp3" id="4_7r1g0"]
-[ext_resource type="AudioStream" uid="uid://rdcr10u85oy7" path="res://music/click-button.mp3" id="4_cqjrg"]
-[ext_resource type="Texture2D" uid="uid://col3hgksclg1i" path="res://Sprites/quit (2).png" id="4_iwfq2"]
-[ext_resource type="AudioStream" uid="uid://dd0vtc818c1sa" path="res://music/tvari-tokyo-cafe-159065.mp3" id="7_cqjrg"]
+[ext_resource type="Texture2D" uid="uid://cvqdtrffgfevw" path="res://Sprites/Background (1).jpg" id="2_eiy7p"]
+[ext_resource type="Texture2D" uid="uid://b420emtaiipt3" path="res://Sprites/start (2).png" id="3_qoqlk"]
+[ext_resource type="AudioStream" uid="uid://dq7es5uy4n7w3" path="res://music/menu-button-88360.mp3" id="4_7r1g0"]
+[ext_resource type="AudioStream" uid="uid://dwfo3yf1vddxf" path="res://music/click-button.mp3" id="4_cqjrg"]
+[ext_resource type="Texture2D" uid="uid://vxekar2ky22" path="res://Sprites/quit (2).png" id="4_iwfq2"]
+[ext_resource type="AudioStream" uid="uid://ds77qpojx81wd" path="res://music/tokyo-cafe.mp3" id="7_cqjrg"]
 
 [node name="MainMenu" type="Node2D"]
 script = ExtResource("1_i26rj")
@@ -15,10 +15,10 @@ script = ExtResource("1_i26rj")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -67.0
-offset_top = -32.0
-offset_right = 1853.0
-offset_bottom = 1056.0
+offset_left = -7.0
+offset_top = -6.0
+offset_right = 1913.0
+offset_bottom = 1082.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_eiy7p")
@@ -36,17 +36,17 @@ volume_db = -20.0
 stream = ExtResource("4_cqjrg")
 
 [node name="StartButton" type="Button" parent="CanvasLayer"]
-offset_left = 420.0
-offset_top = 231.0
-offset_right = 715.0
-offset_bottom = 329.0
+offset_left = 480.0
+offset_top = 259.0
+offset_right = 775.0
+offset_bottom = 357.0
 icon = ExtResource("3_qoqlk")
 
 [node name="QuitButton" type="Button" parent="CanvasLayer"]
-offset_left = 414.0
-offset_top = 349.0
-offset_right = 722.0
-offset_bottom = 447.0
+offset_left = 472.0
+offset_top = 376.0
+offset_right = 780.0
+offset_bottom = 474.0
 icon = ExtResource("4_iwfq2")
 
 [node name="MusicPlayer" type="AudioStreamPlayer" parent="."]

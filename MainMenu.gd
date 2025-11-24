@@ -22,7 +22,6 @@ var start_original_pos : Vector2
 var quit_original_pos : Vector2
 
 func _ready():
-	MusicPlayer.play_main()
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	
 	start_original_pos = start_button.position
@@ -40,6 +39,7 @@ func _ready():
 	quit_button.mouse_entered.connect(_on_quit_hover)
 	quit_button.mouse_exited.connect(_on_quit_exit)
 
+		
 func click_sound_play(timeout):
 	click_sound.play()
 	await get_tree().create_timer(timeout).timeout

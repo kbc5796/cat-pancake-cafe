@@ -13,8 +13,8 @@ extends CharacterBody2D
 var active_cat_index = 0
 
 # Map boundaries
-@export var min_x = -350
-@export var max_x = 350
+@export var min_x = -400
+@export var max_x = 410
 @export var min_y = -200
 @export var max_y = 60
 

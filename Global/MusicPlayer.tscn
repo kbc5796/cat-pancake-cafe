@@ -1,11 +1,11 @@
 [gd_scene load_steps=4 format=3 uid="uid://vksmk2oojmon"]
 
-[ext_resource type="AudioStream" path="res://music/cozy-crackle-nights-2-345531.mp3" id="1_pxhac"]
+[ext_resource type="AudioStream" uid="uid://ds77qpojx81wd" path="res://music/tokyo-cafe.mp3" id="1_1a72i"]
 
 [sub_resource type="GDScript" id="GDScript_ghq50"]
 script/source = "extends Node
 
-var main_music = preload(\"res://Music/main-theme.mp3\")
+var main_music = preload(\"res://music/tokyo-cafe.mp3\")
 var tutorial_music = preload(\"res://music/tutorial_theme.mp3\")
 var shop_music = preload(\"res://music/shop_theme.mp3\")
 
@@ -30,7 +30,8 @@ func play_shop():
 script = SubResource("GDScript_ghq50")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("1_pxhac")
+stream = ExtResource("1_1a72i")
 volume_db = -20.0
+autoplay = true
 parameters/looping = true
 script = SubResource("GDScript_b4324")

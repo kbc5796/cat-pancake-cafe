@@ -1,63 +1,64 @@
-[gd_scene load_steps=67 format=3 uid="uid://dg7sn7yc8soxw"]
+[gd_scene load_steps=68 format=3 uid="uid://dg7sn7yc8soxw"]
 
 [ext_resource type="Script" uid="uid://btau76gnr6hu0" path="res://GameManager.gd" id="1_3tbxw"]
-[ext_resource type="Texture2D" uid="uid://dqbwmp7vvadet" path="res://Sprites/backgroundforgame.jpg" id="1_8qpgq"]
+[ext_resource type="Texture2D" uid="uid://d0xs5laex14yb" path="res://Sprites/backgroundforgame.jpg" id="1_8qpgq"]
 [ext_resource type="Script" uid="uid://dgn7mxq5jnyjx" path="res://PlayerActions.gd" id="2_pv6b4"]
-[ext_resource type="Texture2D" uid="uid://5jl412ln4l4r" path="res://Sprites/timer.png" id="3_aeu83"]
+[ext_resource type="Texture2D" uid="uid://d2qfpp8m01qpj" path="res://Sprites/backgroundforgame3.png" id="2_tdq2s"]
+[ext_resource type="Texture2D" uid="uid://c7ddomoydwsxw" path="res://Sprites/timer.png" id="3_aeu83"]
 [ext_resource type="Script" uid="uid://dngbft20e4txe" path="res://Customer.gd" id="3_x5ji8"]
-[ext_resource type="Texture2D" uid="uid://dc3twkp5fxxfo" path="res://Sprites/coins.png" id="4_f21le"]
-[ext_resource type="Texture2D" uid="uid://cv1t7usm8urxd" path="res://Sprites/customer.png" id="4_v3hs3"]
+[ext_resource type="Texture2D" uid="uid://bxnqn7etwek2m" path="res://Sprites/coins.png" id="4_f21le"]
+[ext_resource type="Texture2D" uid="uid://d3vy505a5v48n" path="res://Sprites/customer.png" id="4_v3hs3"]
 [ext_resource type="Script" uid="uid://bx1senfqwd70f" path="res://Stove.gd" id="5_pv6b4"]
 [ext_resource type="Script" uid="uid://dq36xhp2lhfit" path="res://DrinkMachine.gd" id="6_8dnxm"]
 [ext_resource type="Script" uid="uid://kka6kd2s7087" path="res://ToppingStation.gd" id="7_v3hs3"]
-[ext_resource type="Texture2D" uid="uid://dlsebe12b7bgh" path="res://Player/down/front.png" id="8_uc6q1"]
-[ext_resource type="Texture2D" uid="uid://cgeemgsgcedt6" path="res://Hotbar/EmptyHotBar.png" id="9_o8l48"]
-[ext_resource type="Texture2D" uid="uid://ck2rlus177po8" path="res://Player/down/front.walk.png" id="9_vygm6"]
-[ext_resource type="Texture2D" uid="uid://cwwywaru8lll4" path="res://Player/left/left.png" id="10_2e153"]
-[ext_resource type="Texture2D" uid="uid://bu1gxxjoms5d6" path="res://Sprites/choose-your-brew.png" id="10_led80"]
-[ext_resource type="Texture2D" uid="uid://c6aew7ypahmf3" path="res://Player/left/left.walk1.png" id="11_cdkxt"]
-[ext_resource type="Texture2D" uid="uid://uvrrfmps3hyx" path="res://Sprites/coffee (1).png" id="11_mi4js"]
-[ext_resource type="Texture2D" uid="uid://kcjkh8c7pybo" path="res://Player/left/left.walk2.png" id="12_k1sw4"]
-[ext_resource type="Texture2D" uid="uid://dy6d4c0rkhpil" path="res://Sprites/tea (1).png" id="12_o3vwv"]
-[ext_resource type="Texture2D" uid="uid://ctftkgrjmghqi" path="res://Player/right/right.png" id="13_6rkns"]
-[ext_resource type="Texture2D" uid="uid://u37be2qccf25" path="res://Sprites/new_pan.png" id="13_m6fch"]
-[ext_resource type="Texture2D" uid="uid://dr5i1rvjsguec" path="res://Sprites/yum-which-sweet-topping-do-you-want.png" id="13_mi4js"]
-[ext_resource type="Texture2D" uid="uid://d3r3csy7upglt" path="res://Sprites/strawberry.png" id="14_401ut"]
-[ext_resource type="Texture2D" uid="uid://bvyu48muisbs6" path="res://Player/right/right.walk1.png" id="14_jbja5"]
-[ext_resource type="Texture2D" uid="uid://cd3lmn4rua4ct" path="res://Player/right/right.walk2.png" id="15_xvovi"]
-[ext_resource type="Texture2D" uid="uid://c7nyanahajg5b" path="res://Sprites/blueberry.png" id="15_yphxy"]
-[ext_resource type="Texture2D" uid="uid://d2klcx8i7hj2p" path="res://Player/up/back.png" id="16_vjpaa"]
-[ext_resource type="Texture2D" uid="uid://b5ke5xhgre1gg" path="res://Player/up/back.walk.png" id="17_jyxgm"]
-[ext_resource type="Texture2D" uid="uid://col3hgksclg1i" path="res://Sprites/quit (2).png" id="17_yphxy"]
-[ext_resource type="Texture2D" uid="uid://b55kh8ihqoqbf" path="res://Player/cat2/b.front.png" id="18_e8wx8"]
-[ext_resource type="AudioStream" uid="uid://kjjs8rythkx5" path="res://music/menu-button-88360.mp3" id="18_ma1re"]
-[ext_resource type="AudioStream" uid="uid://rdcr10u85oy7" path="res://music/click-button.mp3" id="19_28psf"]
-[ext_resource type="Texture2D" uid="uid://c582i24h5wmm0" path="res://Player/cat2/b.front.walk.png" id="19_tdq2s"]
-[ext_resource type="AudioStream" uid="uid://dk814djc2e7d1" path="res://music/interactive-sounds.mp3" id="20_a6adi"]
-[ext_resource type="Texture2D" uid="uid://b3k6v4b3dg2r5" path="res://Player/cat2/b.left.png" id="20_dygjy"]
-[ext_resource type="Texture2D" uid="uid://w7ly8hk4w807" path="res://Player/cat2/b.left.walk1.png" id="21_edvcq"]
-[ext_resource type="AudioStream" uid="uid://c36upwixidwl5" path="res://music/Ding.mp3" id="21_va67g"]
-[ext_resource type="AudioStream" uid="uid://djjdqwbpxvd7f" path="res://music/10s-countdown.mp3" id="22_t0yo1"]
-[ext_resource type="Texture2D" uid="uid://gbro2rr3qbfk" path="res://Player/cat2/b.left.walk2.png" id="22_xyeuq"]
-[ext_resource type="AudioStream" uid="uid://c3ncfa53sjx4q" path="res://music/Bell.mp3" id="23_6brkw"]
-[ext_resource type="Texture2D" uid="uid://xweahvt267r0" path="res://Player/cat2/b.right.png" id="23_t4s8j"]
-[ext_resource type="AudioStream" uid="uid://ddnx5a6j6pqun" path="res://music/Fire.mp3" id="24_cgwad"]
-[ext_resource type="Texture2D" uid="uid://bwxhltb7k5fs" path="res://Player/cat2/b.right.walk1.png" id="24_iluto"]
-[ext_resource type="AudioStream" uid="uid://busqj87yg7v30" path="res://music/drink-pouring.mp3" id="25_0igvr"]
-[ext_resource type="Texture2D" uid="uid://b0kwbopr16x2i" path="res://Player/cat2/b.right.walk2.png" id="25_av1bx"]
-[ext_resource type="Texture2D" uid="uid://bypd2telq57sr" path="res://Player/cat2/b.back.png" id="26_dygid"]
-[ext_resource type="Texture2D" uid="uid://d3mmatja2ue0i" path="res://Player/cat2/b.back.walk.png" id="27_8d602"]
-[ext_resource type="Texture2D" uid="uid://d4k486gxp7usn" path="res://Player/cat3/a.front.png" id="28_06tja"]
+[ext_resource type="Texture2D" uid="uid://buw2qkle3pm5e" path="res://Player/down/front.png" id="8_uc6q1"]
+[ext_resource type="Texture2D" uid="uid://cf750yeheq451" path="res://Hotbar/EmptyHotBar.png" id="9_o8l48"]
+[ext_resource type="Texture2D" uid="uid://b0wb676v5mc75" path="res://Player/down/front.walk.png" id="9_vygm6"]
+[ext_resource type="Texture2D" uid="uid://ccw2e06klhb1y" path="res://Player/left/left.png" id="10_2e153"]
+[ext_resource type="Texture2D" uid="uid://ecd5xo7vfrcu" path="res://Sprites/choose-your-brew.png" id="10_led80"]
+[ext_resource type="Texture2D" uid="uid://cvkfpc4qq8ipr" path="res://Player/left/left.walk1.png" id="11_cdkxt"]
+[ext_resource type="Texture2D" uid="uid://gqot7e2vvi52" path="res://Sprites/coffee (1).png" id="11_mi4js"]
+[ext_resource type="Texture2D" uid="uid://bne16xqt7h4qy" path="res://Player/left/left.walk2.png" id="12_k1sw4"]
+[ext_resource type="Texture2D" uid="uid://cjobhmg7awg3i" path="res://Sprites/tea (1).png" id="12_o3vwv"]
+[ext_resource type="Texture2D" uid="uid://6j0pjwndgq4w" path="res://Player/right/right.png" id="13_6rkns"]
+[ext_resource type="Texture2D" uid="uid://ccdemhs0cf04m" path="res://Sprites/new_pan.png" id="13_m6fch"]
+[ext_resource type="Texture2D" uid="uid://dvbsla8tabhq8" path="res://Sprites/yum-which-sweet-topping-do-you-want.png" id="13_mi4js"]
+[ext_resource type="Texture2D" uid="uid://ckf16rj68xjir" path="res://Sprites/strawberry.png" id="14_401ut"]
+[ext_resource type="Texture2D" uid="uid://crrmihwon3lf1" path="res://Player/right/right.walk1.png" id="14_jbja5"]
+[ext_resource type="Texture2D" uid="uid://me08lb1orcqu" path="res://Player/right/right.walk2.png" id="15_xvovi"]
+[ext_resource type="Texture2D" uid="uid://cij3xnclqxed6" path="res://Sprites/blueberry.png" id="15_yphxy"]
+[ext_resource type="Texture2D" uid="uid://cx5b0ygknb42" path="res://Player/up/back.png" id="16_vjpaa"]
+[ext_resource type="Texture2D" uid="uid://b7tm5rjlhdcx7" path="res://Player/up/back.walk.png" id="17_jyxgm"]
+[ext_resource type="Texture2D" uid="uid://vxekar2ky22" path="res://Sprites/quit (2).png" id="17_yphxy"]
+[ext_resource type="Texture2D" uid="uid://cjnkk6kgedrgy" path="res://Player/cat2/b.front.png" id="18_e8wx8"]
+[ext_resource type="AudioStream" uid="uid://dq7es5uy4n7w3" path="res://music/menu-button-88360.mp3" id="18_ma1re"]
+[ext_resource type="AudioStream" uid="uid://dwfo3yf1vddxf" path="res://music/click-button.mp3" id="19_28psf"]
+[ext_resource type="Texture2D" uid="uid://c3isdeaopulgr" path="res://Player/cat2/b.front.walk.png" id="19_tdq2s"]
+[ext_resource type="AudioStream" uid="uid://c1suv2bvoisft" path="res://music/interactive-sounds.mp3" id="20_a6adi"]
+[ext_resource type="Texture2D" uid="uid://cwqviicqmtsxm" path="res://Player/cat2/b.left.png" id="20_dygjy"]
+[ext_resource type="Texture2D" uid="uid://bqcxbkx4six6f" path="res://Player/cat2/b.left.walk1.png" id="21_edvcq"]
+[ext_resource type="AudioStream" uid="uid://bvh45plv00il7" path="res://music/Ding.mp3" id="21_va67g"]
+[ext_resource type="AudioStream" uid="uid://1v335rce7ujw" path="res://music/10s-countdown.mp3" id="22_t0yo1"]
+[ext_resource type="Texture2D" uid="uid://dyexnlsu68gno" path="res://Player/cat2/b.left.walk2.png" id="22_xyeuq"]
+[ext_resource type="AudioStream" uid="uid://desf20h880qk" path="res://music/Bell.mp3" id="23_6brkw"]
+[ext_resource type="Texture2D" uid="uid://by610guqeqs6v" path="res://Player/cat2/b.right.png" id="23_t4s8j"]
+[ext_resource type="AudioStream" uid="uid://jspte0cof8j5" path="res://music/Fire.mp3" id="24_cgwad"]
+[ext_resource type="Texture2D" uid="uid://n81ve5e2rbhi" path="res://Player/cat2/b.right.walk1.png" id="24_iluto"]
+[ext_resource type="AudioStream" uid="uid://de5mhj3qcyb56" path="res://music/drink-pouring.mp3" id="25_0igvr"]
+[ext_resource type="Texture2D" uid="uid://b44jwn8e0w7h0" path="res://Player/cat2/b.right.walk2.png" id="25_av1bx"]
+[ext_resource type="Texture2D" uid="uid://dy82kypady6n0" path="res://Player/cat2/b.back.png" id="26_dygid"]
+[ext_resource type="Texture2D" uid="uid://dynov2107rb7s" path="res://Player/cat2/b.back.walk.png" id="27_8d602"]
+[ext_resource type="Texture2D" uid="uid://taruff642amu" path="res://Player/cat3/a.front.png" id="28_06tja"]
 [ext_resource type="Script" uid="uid://dtnapf3q64px1" path="res://addons/virtual_joystick/virtual_joystick_instantiator.gd" id="29_05o7g"]
-[ext_resource type="Texture2D" uid="uid://dceyc1iffyvfo" path="res://Player/cat3/a.front.walk (1).png" id="29_ecpwa"]
-[ext_resource type="Texture2D" uid="uid://m04vh7rng4na" path="res://Player/cat3/a.left.png" id="30_g4i0f"]
-[ext_resource type="Texture2D" uid="uid://fnxmrod2uy5k" path="res://Player/cat3/a.left.walk1.png" id="31_rlmnt"]
-[ext_resource type="Texture2D" uid="uid://b4f1gjwshxq1m" path="res://Player/cat3/a.left.walk2.png" id="32_uyv6e"]
-[ext_resource type="Texture2D" uid="uid://dthf7a80sdlqj" path="res://Player/cat3/a.right.png" id="33_6fhdl"]
-[ext_resource type="Texture2D" uid="uid://c58h0qqihb26d" path="res://Player/cat3/a.right.walk1.png" id="34_mjfri"]
-[ext_resource type="Texture2D" uid="uid://cmtfmheeenpur" path="res://Player/cat3/a.right.walk2.png" id="35_612dn"]
-[ext_resource type="Texture2D" uid="uid://d04ygv382e78p" path="res://Player/cat3/a.back.png" id="36_2fqxv"]
-[ext_resource type="Texture2D" uid="uid://dmtyq6wn8fnfb" path="res://Player/cat3/a.back.walk2.png" id="37_ekowe"]
+[ext_resource type="Texture2D" uid="uid://dr0a2oitt6eo8" path="res://Player/cat3/a.front.walk (1).png" id="29_ecpwa"]
+[ext_resource type="Texture2D" uid="uid://bqbtjdlvv4ltw" path="res://Player/cat3/a.left.png" id="30_g4i0f"]
+[ext_resource type="Texture2D" uid="uid://cjswiqb2pptbg" path="res://Player/cat3/a.left.walk1.png" id="31_rlmnt"]
+[ext_resource type="Texture2D" uid="uid://b0sihsjhnbu5f" path="res://Player/cat3/a.left.walk2.png" id="32_uyv6e"]
+[ext_resource type="Texture2D" uid="uid://hivb2erwohe7" path="res://Player/cat3/a.right.png" id="33_6fhdl"]
+[ext_resource type="Texture2D" uid="uid://w064dxtc2n2o" path="res://Player/cat3/a.right.walk1.png" id="34_mjfri"]
+[ext_resource type="Texture2D" uid="uid://ygtdddp5tsjm" path="res://Player/cat3/a.right.walk2.png" id="35_612dn"]
+[ext_resource type="Texture2D" uid="uid://bwdibmpyl730y" path="res://Player/cat3/a.back.png" id="36_2fqxv"]
+[ext_resource type="Texture2D" uid="uid://d4bsph57whc22" path="res://Player/cat3/a.back.walk2.png" id="37_ekowe"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0v7qb"]
 size = Vector2(180, 133)
@@ -228,10 +229,10 @@ size = Vector2(110, 158)
 size = Vector2(107, 135)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v3hs3"]
-size = Vector2(60, 193)
+size = Vector2(155, 218.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o8l48"]
-size = Vector2(61, 164)
+size = Vector2(201, 120)
 
 [node name="MainGame" type="Node2D"]
 
@@ -239,18 +240,24 @@ size = Vector2(61, 164)
 position = Vector2(-43, 55)
 script = ExtResource("1_3tbxw")
 
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(627, 333.75)
+scale = Vector2(0.914244, 0.861868)
+texture = ExtResource("2_tdq2s")
+
 [node name="Background" type="Sprite2D" parent="."]
-position = Vector2(577.5, 332.5)
-scale = Vector2(0.724375, 0.739955)
+visible = false
+position = Vector2(627, 332.5)
+scale = Vector2(0.78625, 0.739955)
 texture = ExtResource("1_8qpgq")
 
 [node name="Timer" type="Sprite2D" parent="."]
-position = Vector2(1084, 52)
-scale = Vector2(0.241071, 0.238128)
+position = Vector2(1146.9999, 76)
+scale = Vector2(0.241071, 0.245125)
 texture = ExtResource("3_aeu83")
 
 [node name="Coin" type="Sprite2D" parent="."]
-position = Vector2(991, 51)
+position = Vector2(1057.741, 75.74398)
 scale = Vector2(0.241071, 0.238128)
 texture = ExtResource("4_f21le")
 
@@ -258,45 +265,45 @@ texture = ExtResource("4_f21le")
 script = ExtResource("3_x5ji8")
 
 [node name="Sprite2D" type="Sprite2D" parent="Customer"]
-position = Vector2(576, 154)
+position = Vector2(621, 152)
 scale = Vector2(0.223633, 0.186524)
 texture = ExtResource("4_v3hs3")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Customer"]
-position = Vector2(581, 145.5)
+position = Vector2(623, 152)
 shape = SubResource("RectangleShape2D_0v7qb")
 
 [node name="OrderIcon" type="Sprite2D" parent="Customer"]
-position = Vector2(575, 75)
+position = Vector2(620, 75)
 scale = Vector2(0.2, 0.2)
 
 [node name="Player" type="CharacterBody2D" parent="."]
 script = ExtResource("2_pv6b4")
 
 [node name="Cat1" type="AnimatedSprite2D" parent="Player"]
-position = Vector2(568, 358)
+position = Vector2(625, 361)
 sprite_frames = SubResource("SpriteFrames_6ylhg")
 animation = &"up"
 
 [node name="Cat2" type="AnimatedSprite2D" parent="Player"]
-position = Vector2(574, 362)
+position = Vector2(625, 360)
 sprite_frames = SubResource("SpriteFrames_crc4a")
 animation = &"up"
 
 [node name="Cat3" type="AnimatedSprite2D" parent="Player"]
-position = Vector2(569, 358)
+position = Vector2(625, 362)
 sprite_frames = SubResource("SpriteFrames_onvxb")
 animation = &"up"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
-position = Vector2(569, 366)
+position = Vector2(626, 367)
 shape = SubResource("RectangleShape2D_x5ji8")
 
 [node name="Stove" type="Area2D" parent="."]
 script = ExtResource("5_pv6b4")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Stove"]
-position = Vector2(874, 182.5)
+position = Vector2(950, 186)
 shape = SubResource("RectangleShape2D_8dnxm")
 
 [node name="DrinkMachine" type="Area2D" parent="."]
@@ -304,7 +311,7 @@ position = Vector2(3, -8)
 script = ExtResource("6_8dnxm")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DrinkMachine"]
-position = Vector2(206, 188.5)
+position = Vector2(292.5, 204.75)
 shape = SubResource("RectangleShape2D_v3hs3")
 
 [node name="ToppingStation" type="Area2D" parent="."]
@@ -312,39 +319,39 @@ position = Vector2(0, 4)
 script = ExtResource("7_v3hs3")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ToppingStation"]
-position = Vector2(297.5, 181)
+position = Vector2(1073.5, 441)
 shape = SubResource("RectangleShape2D_o8l48")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="OrderLabel" type="Label" parent="CanvasLayer"]
-offset_left = 436.0
-offset_top = 28.0
-offset_right = 476.0
-offset_bottom = 51.0
+offset_left = 529.0
+offset_top = 19.0
+offset_right = 714.0
+offset_bottom = 42.0
 
 [node name="CoinsLabel" type="Label" parent="CanvasLayer"]
-offset_left = 959.0
-offset_top = 71.0
-offset_right = 1025.0
-offset_bottom = 90.0
+offset_left = 1025.741
+offset_top = 96.74397
+offset_right = 1091.741
+offset_bottom = 112.74397
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 11
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="TimerLabel" type="Label" parent="CanvasLayer"]
-offset_left = 1052.0
-offset_top = 69.0
-offset_right = 1118.0
-offset_bottom = 89.0
+offset_left = 1114.9999
+offset_top = 96.0
+offset_right = 1180.9999
+offset_bottom = 112.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 11
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="HotbarSlot" type="Sprite2D" parent="CanvasLayer"]
-position = Vector2(574.125, 582.75)
+position = Vector2(627, 581)
 scale = Vector2(0.157, 0.145)
 texture = ExtResource("9_o8l48")
 
@@ -365,10 +372,10 @@ offset_bottom = 578.0
 
 [node name="MenuBackground" type="TextureRect" parent="CanvasLayer/DrinkMenu"]
 layout_mode = 0
-offset_left = 75.0
-offset_top = -24.0
-offset_right = 535.0
-offset_bottom = 47.0
+offset_left = 130.0
+offset_top = -27.0
+offset_right = 590.0
+offset_bottom = 44.0
 texture = ExtResource("10_led80")
 
 [node name="CoffeeButton" type="TextureButton" parent="CanvasLayer/DrinkMenu"]
@@ -378,19 +385,19 @@ anchor_left = 0.165
 anchor_top = 0.5
 anchor_right = 0.618
 anchor_bottom = 1.0
-offset_left = -19.175
-offset_top = -24.0
-offset_right = -64.71
-offset_bottom = 24.0
+offset_left = 31.825
+offset_top = -28.0
+offset_right = -13.71
+offset_bottom = 20.0
 texture_normal = ExtResource("11_mi4js")
 stretch_mode = 5
 
 [node name="TeaButton" type="TextureButton" parent="CanvasLayer/DrinkMenu"]
 layout_mode = 0
-offset_left = 313.0
-offset_top = 19.0
-offset_right = 537.0
-offset_bottom = 134.0
+offset_left = 366.0
+offset_top = 16.0
+offset_right = 590.0
+offset_bottom = 131.0
 texture_normal = ExtResource("12_o3vwv")
 stretch_mode = 5
 
@@ -403,27 +410,27 @@ offset_bottom = 40.0
 
 [node name="ToppingMenuBackground" type="TextureRect" parent="CanvasLayer/ToppingMenu"]
 layout_mode = 0
-offset_left = 346.0
-offset_top = 452.0
-offset_right = 804.0
-offset_bottom = 524.0
+offset_left = 402.0
+offset_top = 450.0
+offset_right = 860.0
+offset_bottom = 522.0
 texture = ExtResource("13_mi4js")
 
 [node name="StrawberryButton" type="TextureButton" parent="CanvasLayer/ToppingMenu"]
 layout_mode = 0
-offset_left = 344.0
-offset_top = 528.0
-offset_right = 574.0
-offset_bottom = 575.0
+offset_left = 395.0
+offset_top = 527.0
+offset_right = 625.0
+offset_bottom = 574.0
 texture_normal = ExtResource("14_401ut")
 stretch_mode = 5
 
 [node name="BlueberryButton" type="TextureButton" parent="CanvasLayer/ToppingMenu"]
 layout_mode = 0
-offset_left = 582.0
-offset_top = 526.0
-offset_right = 808.0
-offset_bottom = 577.0
+offset_left = 638.0
+offset_top = 525.0
+offset_right = 864.0
+offset_bottom = 576.0
 texture_normal = ExtResource("15_yphxy")
 stretch_mode = 5
 

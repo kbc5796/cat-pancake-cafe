@@ -1,13 +1,13 @@
 [gd_scene load_steps=9 format=3 uid="uid://bst663sng8inw"]
 
 [ext_resource type="Script" uid="uid://nrgkvbwo13jy" path="res://shop.gd" id="1_blqjs"]
-[ext_resource type="Texture2D" uid="uid://cesoy7lq18fbi" path="res://Sprites/shopbackground.png" id="1_e7rdd"]
-[ext_resource type="Texture2D" uid="uid://cagppistc6dyj" path="res://Sprites/backarrow.png" id="2_blqjs"]
-[ext_resource type="AudioStream" uid="uid://rdcr10u85oy7" path="res://music/click-button.mp3" id="4_fgaav"]
-[ext_resource type="Texture2D" uid="uid://ut0k2p0ogtra" path="res://Sprites/cat1.png" id="5_8kdgp"]
-[ext_resource type="Texture2D" uid="uid://cm6kjwe1uh1i" path="res://Sprites/cat2.png" id="6_myf4l"]
-[ext_resource type="Texture2D" uid="uid://d1ih27egipoqk" path="res://Sprites/cat3.png" id="7_p5a0g"]
-[ext_resource type="Texture2D" uid="uid://dc3twkp5fxxfo" path="res://Sprites/coins.png" id="8_myf4l"]
+[ext_resource type="Texture2D" uid="uid://vnbi7g88jpym" path="res://Sprites/shopbackground.png" id="1_e7rdd"]
+[ext_resource type="Texture2D" uid="uid://6kn72vmwtih3" path="res://Sprites/backarrow.png" id="2_blqjs"]
+[ext_resource type="AudioStream" uid="uid://dwfo3yf1vddxf" path="res://music/click-button.mp3" id="4_fgaav"]
+[ext_resource type="Texture2D" uid="uid://dbbfluwjl6ka5" path="res://Sprites/cat1.png" id="5_8kdgp"]
+[ext_resource type="Texture2D" uid="uid://denwtrnt3orxb" path="res://Sprites/cat2.png" id="6_myf4l"]
+[ext_resource type="Texture2D" uid="uid://db157ryknf5s5" path="res://Sprites/cat3.png" id="7_p5a0g"]
+[ext_resource type="Texture2D" uid="uid://bxnqn7etwek2m" path="res://Sprites/coins.png" id="8_myf4l"]
 
 [node name="Shop" type="Node2D"]
 script = ExtResource("1_blqjs")
@@ -15,50 +15,50 @@ script = ExtResource("1_blqjs")
 [node name="TextureRect" type="TextureRect" parent="."]
 offset_left = 5.0
 offset_top = -198.0
-offset_right = 1163.0
+offset_right = 1234.0
 offset_bottom = 826.0
 texture = ExtResource("1_e7rdd")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Back" type="Button" parent="CanvasLayer"]
-offset_left = 28.0
-offset_top = 28.0
-offset_right = 96.0
-offset_bottom = 77.0
+offset_left = 57.0
+offset_top = 48.0
+offset_right = 125.0
+offset_bottom = 97.0
 icon = ExtResource("2_blqjs")
 
 [node name="ClickSound" type="AudioStreamPlayer2D" parent="CanvasLayer"]
 stream = ExtResource("4_fgaav")
 
 [node name="Cat1" type="Button" parent="CanvasLayer"]
-offset_left = 327.0
-offset_top = 221.0
-offset_right = 436.0
-offset_bottom = 400.0
+offset_left = 352.0
+offset_top = 219.0
+offset_right = 461.0
+offset_bottom = 398.0
 icon = ExtResource("5_8kdgp")
 
 [node name="Cat2" type="Button" parent="CanvasLayer"]
-offset_left = 530.0
+offset_left = 563.0
 offset_top = 216.0
-offset_right = 639.0
+offset_right = 672.0
 offset_bottom = 396.0
 icon = ExtResource("6_myf4l")
 
 [node name="Cat3" type="Button" parent="CanvasLayer"]
-offset_left = 730.0
-offset_top = 217.0
-offset_right = 838.0
-offset_bottom = 397.0
+offset_left = 777.0
+offset_top = 219.0
+offset_right = 885.0
+offset_bottom = 399.0
 icon = ExtResource("7_p5a0g")
 
 [node name="Coin" type="Sprite2D" parent="CanvasLayer"]
-position = Vector2(1071, 81)
-scale = Vector2(0.313609, 0.324513)
+position = Vector2(1154, 73)
+scale = Vector2(0.289941, 0.307103)
 texture = ExtResource("8_myf4l")
 
 [node name="CoinsLabel" type="Label" parent="CanvasLayer"]
-offset_left = 1032.0
-offset_top = 109.0
-offset_right = 1076.0
-offset_bottom = 132.0
+offset_left = 1126.0
+offset_top = 97.0
+offset_right = 1185.0
+offset_bottom = 120.0

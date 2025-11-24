@@ -98,6 +98,7 @@ func ding_sound_play():
 
 # =================== BUTTON FUNCTIONS ===================
 func _on_back_pressed():
+	MusicPlayer.play_main()
 	await click_sound_play(0.1)
 	get_tree().change_scene_to_file("res://LevelSelect.tscn")
 	
@@ -117,6 +118,7 @@ func connect_button():
 
 # =================== GAME LOOP ===================
 func _ready():
+	MusicPlayer.play_shop()
 	connect_button()
 	randomize()
 	show_hotbar("Empty")

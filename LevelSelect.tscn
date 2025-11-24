@@ -1,19 +1,18 @@
-[gd_scene load_steps=16 format=3 uid="uid://yddbysr6akkj"]
+[gd_scene load_steps=15 format=3 uid="uid://yddbysr6akkj"]
 
 [ext_resource type="Script" uid="uid://ca2ewm5143t0p" path="res://LevelSelect.gd" id="1_sf6f5"]
-[ext_resource type="Texture2D" uid="uid://ba0dsqq7xn6ww" path="res://Sprites/levelselects.jpg" id="2_ardn0"]
-[ext_resource type="Texture2D" uid="uid://de4y2gjx7dcd7" path="res://Sprites/level-one.png" id="3_b3bbf"]
-[ext_resource type="Texture2D" uid="uid://cbliof3sefyaj" path="res://Sprites/level-two.png" id="4_41uxa"]
-[ext_resource type="Texture2D" uid="uid://d1q6ahb0ikhqj" path="res://Sprites/back-to-main-menu (1).png" id="5_41uxa"]
-[ext_resource type="Texture2D" uid="uid://caagc2x6awqyo" path="res://Sprites/level-three.png" id="5_hvlej"]
-[ext_resource type="Texture2D" uid="uid://0cujoty77elv" path="res://Sprites/endless-mode.png" id="6_0a771"]
-[ext_resource type="AudioStream" uid="uid://rdcr10u85oy7" path="res://music/click-button.mp3" id="9_41uxa"]
-[ext_resource type="Texture2D" uid="uid://gdmcrn0an67l" path="res://Sprites/pick-a-level-to-continue.png" id="9_b3bbf"]
-[ext_resource type="AudioStream" uid="uid://eaq4ssea8erx" path="res://music/cozy-crackle-nights-2-345531.mp3" id="10_41uxa"]
-[ext_resource type="AudioStream" uid="uid://kjjs8rythkx5" path="res://music/menu-button-88360.mp3" id="10_hvlej"]
-[ext_resource type="Texture2D" uid="uid://dc3twkp5fxxfo" path="res://Sprites/coins.png" id="11_hvlej"]
-[ext_resource type="Texture2D" uid="uid://c6624vf77kdu7" path="res://Sprites/how (1).png" id="11_il1aw"]
-[ext_resource type="Texture2D" uid="uid://cx8n46jolhlsr" path="res://Sprites/shop (2).png" id="13_0a771"]
+[ext_resource type="Texture2D" uid="uid://7sfk4x24j1ha" path="res://Sprites/levelselects.jpg" id="2_ardn0"]
+[ext_resource type="Texture2D" uid="uid://dwnr8s00aq0cp" path="res://Sprites/level-one.png" id="3_b3bbf"]
+[ext_resource type="Texture2D" uid="uid://cw5ls1ngfadnh" path="res://Sprites/level-two.png" id="4_41uxa"]
+[ext_resource type="Texture2D" uid="uid://cejtb1pkjdktb" path="res://Sprites/back-to-main-menu (1).png" id="5_41uxa"]
+[ext_resource type="Texture2D" uid="uid://cyqekwyned3o8" path="res://Sprites/level-three.png" id="5_hvlej"]
+[ext_resource type="Texture2D" uid="uid://dxtcyig7xp1j2" path="res://Sprites/endless-mode.png" id="6_0a771"]
+[ext_resource type="AudioStream" uid="uid://dwfo3yf1vddxf" path="res://music/click-button.mp3" id="9_41uxa"]
+[ext_resource type="Texture2D" uid="uid://bsnh3p5i4fm1r" path="res://Sprites/pick-a-level-to-continue.png" id="9_b3bbf"]
+[ext_resource type="AudioStream" uid="uid://dq7es5uy4n7w3" path="res://music/menu-button-88360.mp3" id="10_hvlej"]
+[ext_resource type="Texture2D" uid="uid://bxnqn7etwek2m" path="res://Sprites/coins.png" id="11_hvlej"]
+[ext_resource type="Texture2D" uid="uid://b0h5om0e53tjw" path="res://Sprites/how (1).png" id="11_il1aw"]
+[ext_resource type="Texture2D" uid="uid://c4wjm7ojdal3y" path="res://Sprites/shop (2).png" id="13_0a771"]
 
 [sub_resource type="GDScript" id="GDScript_il1aw"]
 resource_name = "level_one_button"
@@ -34,11 +33,12 @@ func _process(delta: float) -> void:
 script = ExtResource("1_sf6f5")
 
 [node name="TextureRect" type="TextureRect" parent="."]
-offset_left = -133.0
-offset_top = -316.0
-offset_right = 1307.0
-offset_bottom = 1124.0
+offset_left = -30.0
+offset_top = -154.0
+offset_right = 1247.0
+offset_bottom = 1042.0
 texture = ExtResource("2_ardn0")
+expand_mode = 1
 
 [node name="Coin" type="Sprite2D" parent="."]
 visible = false
@@ -49,43 +49,43 @@ texture = ExtResource("11_hvlej")
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="LevelOne" type="Button" parent="CanvasLayer"]
-offset_left = 410.0
-offset_top = 185.0
-offset_right = 768.0
-offset_bottom = 229.0
+offset_left = 437.0
+offset_top = 175.0
+offset_right = 795.0
+offset_bottom = 219.0
 icon = ExtResource("3_b3bbf")
 script = SubResource("GDScript_il1aw")
 
 [node name="LevelTwo" type="Button" parent="CanvasLayer"]
-offset_left = 410.0
-offset_top = 254.0
-offset_right = 768.0
-offset_bottom = 298.0
+offset_left = 439.0
+offset_top = 240.0
+offset_right = 797.0
+offset_bottom = 284.0
 icon = ExtResource("4_41uxa")
 
 [node name="LevelThree" type="Button" parent="CanvasLayer"]
-offset_left = 410.0
-offset_top = 318.0
-offset_right = 768.0
-offset_bottom = 362.0
+offset_left = 437.0
+offset_top = 308.0
+offset_right = 795.0
+offset_bottom = 352.0
 icon = ExtResource("5_hvlej")
 
 [node name="LevelEndless" type="Button" parent="CanvasLayer"]
-offset_left = 411.0
-offset_top = 382.0
-offset_right = 769.0
-offset_bottom = 426.0
+offset_left = 437.0
+offset_top = 377.0
+offset_right = 795.0
+offset_bottom = 421.0
 icon = ExtResource("6_0a771")
 
 [node name="Back" type="Button" parent="CanvasLayer"]
-offset_left = 389.0
-offset_top = 451.0
-offset_right = 797.0
-offset_bottom = 495.0
+offset_left = 411.0
+offset_top = 453.0
+offset_right = 819.0
+offset_bottom = 497.0
 icon = ExtResource("5_41uxa")
 
 [node name="Sprite2D" type="Sprite2D" parent="CanvasLayer"]
-position = Vector2(591, 129)
+position = Vector2(616, 110)
 scale = Vector2(1.17, 1.36538)
 texture = ExtResource("9_b3bbf")
 
@@ -107,18 +107,17 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 11
 
 [node name="HowToPlay" type="Button" parent="CanvasLayer"]
-offset_left = 840.0
-offset_top = 108.0
-offset_right = 893.0
-offset_bottom = 155.0
+offset_left = 873.0
+offset_top = 88.0
+offset_right = 926.0
+offset_bottom = 135.0
 icon = ExtResource("11_il1aw")
 
 [node name="Shop" type="Button" parent="CanvasLayer"]
-offset_left = 253.0
-offset_top = 105.0
-offset_right = 341.0
-offset_bottom = 152.0
+offset_left = 273.0
+offset_top = 87.0
+offset_right = 361.0
+offset_bottom = 134.0
 icon = ExtResource("13_0a771")
 
 [node name="MusicPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("10_41uxa")

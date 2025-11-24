@@ -21,6 +21,7 @@ func click_sound_play(timeout):
 	
 func _on_back_pressed():
 	# Go back to Main Menu
+	MusicPlayer.play_main()
 	await click_sound_play(0.1)
 	get_tree().change_scene_to_file("res://LevelSelect.tscn")
 	
