@@ -1,17 +1,17 @@
 [gd_scene load_steps=6 format=3 uid="uid://bhya0crbmsp1l"]
 
 [ext_resource type="Script" uid="uid://kl6vltqp52bs" path="res://GameOver.gd" id="1_r71yt"]
-[ext_resource type="Texture2D" uid="uid://bnft1japcppje" path="res://Sprites/level_completion.jpg" id="2_r71yt"]
-[ext_resource type="AudioStream" uid="uid://rdcr10u85oy7" path="res://music/click-button.mp3" id="3_lbulh"]
-[ext_resource type="AudioStream" uid="uid://kjjs8rythkx5" path="res://music/menu-button-88360.mp3" id="4_ddqax"]
-[ext_resource type="Texture2D" uid="uid://bapsn30hibba3" path="res://Sprites/continue.png" id="5_7jgug"]
+[ext_resource type="Texture2D" uid="uid://ka6br5f4r8ij" path="res://Sprites/level_completion.jpg" id="2_r71yt"]
+[ext_resource type="AudioStream" uid="uid://dwfo3yf1vddxf" path="res://music/click-button.mp3" id="3_lbulh"]
+[ext_resource type="AudioStream" uid="uid://dq7es5uy4n7w3" path="res://music/menu-button-88360.mp3" id="4_ddqax"]
+[ext_resource type="Texture2D" uid="uid://dpx0ek48qvmlu" path="res://Sprites/continue.png" id="5_7jgug"]
 
 [node name="YouWin" type="Node2D"]
 script = ExtResource("1_r71yt")
 
 [node name="Background" type="Sprite2D" parent="."]
-position = Vector2(575.315, 327.025)
-scale = Vector2(0.839658, 0.84679)
+position = Vector2(590.3152, 327.025)
+scale = Vector2(0.86146057, 0.84679)
 texture = ExtResource("2_r71yt")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
