@@ -1,8 +1,28 @@
 [gd_scene load_steps=4 format=3 uid="uid://vksmk2oojmon"]
 
-[ext_resource type="AudioStream" uid="uid://dd0vtc818c1sa" path="res://music/tvari-tokyo-cafe-159065.mp3" id="1_1a72i"]
+[ext_resource type="AudioStream" path="res://music/cozy-crackle-nights-2-345531.mp3" id="1_pxhac"]
 
 [sub_resource type="GDScript" id="GDScript_ghq50"]
+script/source = "extends Node
+
+var main_music = preload(\"res://Music/main-theme.mp3\")
+var tutorial_music = preload(\"res://music/tutorial_theme.mp3\")
+var shop_music = preload(\"res://music/shop_theme.mp3\")
+
+@onready var player = $AudioStreamPlayer
+
+func play_main():
+	player.stream = main_music
+	player.play()
+
+func play_tutorial():
+	player.stream = tutorial_music
+	player.play()
+
+func play_shop():
+	player.stream = shop_music
+	player.play()
+"
 
 [sub_resource type="GDScript" id="GDScript_b4324"]
 
@@ -10,8 +30,7 @@
 script = SubResource("GDScript_ghq50")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("1_1a72i")
-volume_db = -25.0
-autoplay = true
+stream = ExtResource("1_pxhac")
+volume_db = -20.0
 parameters/looping = true
 script = SubResource("GDScript_b4324")

@@ -126,13 +126,19 @@ func _ready():
 	update_ui()
 	player_node.switch_cat_by_name(Global.equipped_cat)
 
+	# Endless mode disables timer
+	if Global.selected_level == 0:
+		round_timer = INF
+
 func _process(delta):
-	round_timer -= delta
-	if(round_timer <= 0): check_game_over()
-	if(round_timer <= 10.1 && !played_countdown_sound):
-		if countdown_sound != null:
-			countdown_sound.play()
-		played_countdown_sound = true
+	# Only count down timer for normal levels
+	if Global.selected_level != 0:
+		round_timer -= delta
+		if(round_timer <= 0): check_game_over()
+		if(round_timer <= 10.1 && !played_countdown_sound):
+			if countdown_sound != null:
+				countdown_sound.play()
+			played_countdown_sound = true
 		
 	update_ui()
 	if current_order != "":
@@ -142,7 +148,10 @@ func _process(delta):
 			print("Order expired!")
 			Global.coins -= 4
 			hide_order_icon()
-			if !check_game_over(): 
+			if Global.selected_level != 0:  # Check game over only in normal levels
+				if !check_game_over(): 
+					reset_order()
+			else:  # Endless: just reset
 				reset_order()
 
 # =================== LEVEL SETTING ===================
@@ -151,15 +160,19 @@ func init_level():
 	if(Global.selected_level == 1): 
 		random_size = 3
 		max_order_time = 60.0
-		orders_to_complete_level = 5
+		orders_to_complete_level = 2
 	elif(Global.selected_level == 2):
 		random_size = 5
 		max_order_time = 30.0
-		orders_to_complete_level = 8
+		orders_to_complete_level = 4
 	elif(Global.selected_level == 3): 
 		random_size = 5
 		max_order_time = 15.0
-		orders_to_complete_level = 10
+		orders_to_complete_level = 6
+	elif(Global.selected_level == 0): # Endless
+		random_size = 5
+		max_order_time = 30.0  # optional, could make each order same time
+		orders_to_complete_level = INF  # Endless never completes
 
 # =================== ORDER SPAWNING ===================
 func spawn_new_order():
@@ -273,11 +286,13 @@ func serve_order():
 	else:
 		Global.coins -= 5
 		prepared_item = ""
-		if await check_game_over(): return
+		if Global.selected_level != 0:  # check game over only in normal levels
+			if await check_game_over(): return
 
 	show_hotbar("Empty")
 	hide_order_icon()
-	check_level_completion()
+	if Global.selected_level != 0:
+		check_level_completion()
 	reset_order()
 
 func reset_order():
@@ -289,7 +304,10 @@ func reset_order():
 # =================== UI ===================
 func update_ui():
 	coins_label.text = str(Global.coins)
-	timer_label.text = str(max(0, round(round_timer * 10) / 10))
+	if Global.selected_level != 0:
+		timer_label.text = str(max(0, round(round_timer * 10) / 10))
+	else:
+		timer_label.text = "∞"  # Endless mode
 	if current_order == "":
 		order_label.text = "Waiting for next order..."
 	else:
@@ -298,6 +316,8 @@ func update_ui():
 
 # =================== LEVEL COMPLETION ===================
 func check_level_completion():
+	if Global.selected_level == 0:
+		return  # Endless never completes
 	if orders_served >= orders_to_complete_level:
 		match Global.selected_level:
 			1: Global.unlocked_levels = 2

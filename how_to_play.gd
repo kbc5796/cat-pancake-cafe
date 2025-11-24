@@ -9,6 +9,7 @@ const HOVER_SCALE = 1.1
 const NORMAL_SCALE = 1.0
 
 func _ready():
+	MusicPlayer.play_tutorial()
 	back_button.pressed.connect(_on_back_pressed)
 	back_button.mouse_entered.connect(_on_back_hover)
 	back_button.mouse_exited.connect(_on_back_exit)
@@ -17,6 +18,7 @@ func _ready():
 func _on_back_pressed():
 	if click_sound != null:
 		click_sound.play()
+	MusicPlayer.play_main()
 	await get_tree().create_timer(0.1).timeout  
 	get_tree().change_scene_to_file("res://LevelSelect.tscn")
 

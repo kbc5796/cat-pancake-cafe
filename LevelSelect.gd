@@ -4,6 +4,7 @@ extends Node2D
 @onready var level1_button = $CanvasLayer/LevelOne
 @onready var level2_button = $CanvasLayer/LevelTwo
 @onready var level3_button = $CanvasLayer/LevelThree
+@onready var endless_button = $CanvasLayer/LevelEndless
 @onready var back_button = $CanvasLayer/Back
 @onready var howtoplay_button = $CanvasLayer/HowToPlay
 @onready var shop_button = $CanvasLayer/Shop  
@@ -36,6 +37,10 @@ func _ready():
 	level3_button.pressed.connect(_on_level3_pressed)
 	level3_button.mouse_entered.connect(_on_level3_hover)
 	level3_button.mouse_exited.connect(_on_level3_exit)
+
+	endless_button.pressed.connect(_on_endless_pressed)
+	endless_button.mouse_entered.connect(_on_endless_hover)
+	endless_button.mouse_exited.connect(_on_endless_exit)
 
 	howtoplay_button.pressed.connect(_on_howtoplay_pressed)
 	howtoplay_button.mouse_entered.connect(_on_howtoplay_hover)
@@ -104,6 +109,19 @@ func _on_level3_hover():
 	if hover_sound != null: hover_sound.play()
 	level3_button.scale = Vector2(HOVER_SCALE, HOVER_SCALE)
 func _on_level3_exit(): level3_button.scale = Vector2(NORMAL_SCALE, NORMAL_SCALE)
+
+# ----- Endless button -----
+func _on_endless_pressed():
+	Global.selected_level = 0  # Use 0 or sentinel for endless mode
+	await click_sound_play(0.1)
+	get_tree().change_scene_to_file("res://MainGame.tscn")
+
+func _on_endless_hover():
+	if hover_sound != null: hover_sound.play()
+	endless_button.scale = Vector2(HOVER_SCALE, HOVER_SCALE)
+
+func _on_endless_exit():
+	endless_button.scale = Vector2(NORMAL_SCALE, NORMAL_SCALE)
 
 # ----- HowToPlay button -----
 func _on_howtoplay_pressed():

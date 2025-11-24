@@ -35,8 +35,6 @@ func _physics_process(delta):
 	if Input.is_action_pressed("ui_down"): dir_vec.y += 1
 	if Input.is_action_pressed("ui_up"): dir_vec.y -= 1
 
-	print("dir_vec:", dir_vec)
-	
 	dir_vec = dir_vec.normalized()
 	velocity = dir_vec * speed
 	move_and_slide()
@@ -46,10 +44,7 @@ func _physics_process(delta):
 	position.y = clamp(position.y, min_y, max_y)
 
 	# Animate active cat
-	
 	var sprite = cats[active_cat_index]
-	print("dir_vec:", dir_vec, " flip:", sprite.flip_h)
-	
 	if dir_vec != Vector2.ZERO:
 		if abs(dir_vec.x) > abs(dir_vec.y) * 0.7:
 			sprite.animation = "right"

@@ -25,6 +25,7 @@ var cat_costs = {
 
 # ================== READY ==================
 func _ready():
+	MusicPlayer.play_shop()
 	update_coins_label()
 	connect_buttons()
 	update_button_highlight()
@@ -56,6 +57,7 @@ func connect_buttons():
 
 # ================== BUTTON FUNCTIONS ==================
 func _on_back_pressed():
+	MusicPlayer.play_main()
 	await click_sound_play(0.1)  
 	get_tree().change_scene_to_file("res://LevelSelect.tscn")
 
